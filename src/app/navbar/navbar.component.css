@@ -1,0 +1,10 @@
+li {
+  display: inline;
+}
+
+.navbar .mainimage {
+  width: 200px;
+  height: 100px;
+  display: block;
+}
+

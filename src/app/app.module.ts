@@ -16,6 +16,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { FavoriteHerosComponent } from './favorite-heros/favorite-heros.component';
 import { SizerComponent } from './sizer-component/sizer-component.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { SizerComponent } from './sizer-component/sizer-component.component';
     DashboardComponent,
     HeroSearchComponent,
     FavoriteHerosComponent,
-    SizerComponent
+    SizerComponent,
+    MainPageComponent,
+    RegistrationComponent,
+    NavbarComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

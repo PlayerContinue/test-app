@@ -1,10 +1,3 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-  <a routerLink="/favorite">Favorite</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
-<app-sizer [(size)]="fontSizePx"></app-sizer>
-<div [style.font-size.px]="fontSizePx">Resizable Text</div>
+<app-navbar></app-navbar>
+<router-outlet class="navpad"></router-outlet>
+
