@@ -1,0 +1,3 @@
+C:\Users\dgree\Documents\GitHub\testApp\test-app\obj\Debug\Testapp1.njsprojResolveAssemblyReference.cache
+C:\Users\dgree\Documents\GitHub\testApp\test-app\obj\Debug\Testapp1.njsproj.CoreCompileInputs.cache
+C:\Users\dgree\Documents\GitHub\testApp\test-app\bin\Microsoft.NodejsTools.WebRole.dll
