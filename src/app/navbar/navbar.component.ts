@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageListing } from '../Objects/pageListing';
+﻿import { Component, OnInit } from '@angular/core';
+import { PageListing } from '../_Objects/pageListing';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
