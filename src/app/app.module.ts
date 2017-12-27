@@ -20,6 +20,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     MainPageComponent,
     RegistrationComponent,
     NavbarComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

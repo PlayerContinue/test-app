@@ -10,7 +10,8 @@ export class NavbarComponent implements OnInit {
   pages: PageListing[] = [
     { name: 'Home', url: "/index" },
     { name: 'Create Account', url: "/createaccount" },
-    { name: 'Registration', url: "/registration" }];
+    { name: 'Registration', url: "/registration" },
+    { name: 'About Us', url: "/about" }];
 
   constructor() { }
 

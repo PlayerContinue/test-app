@@ -1,3 +1,6 @@
 C:\Users\dgree\Documents\GitHub\testApp\test-app\obj\Debug\Testapp1.njsprojResolveAssemblyReference.cache
 C:\Users\dgree\Documents\GitHub\testApp\test-app\obj\Debug\Testapp1.njsproj.CoreCompileInputs.cache
 C:\Users\dgree\Documents\GitHub\testApp\test-app\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\in2sm\Documents\GitHub\test-app\obj\Debug\Testapp1.njsprojResolveAssemblyReference.cache
+C:\Users\in2sm\Documents\GitHub\test-app\obj\Debug\Testapp1.njsproj.CoreCompileInputs.cache
+C:\Users\in2sm\Documents\GitHub\test-app\bin\Microsoft.NodejsTools.WebRole.dll

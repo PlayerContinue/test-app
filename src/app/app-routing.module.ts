@@ -7,6 +7,8 @@ import { FavoriteHerosComponent } from './favorite-heros/favorite-heros.componen
 import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { AboutComponent } from './about/about.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch:'full' },
   { path: 'heroes', component: HeroesComponent },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'favorite', component: FavoriteHerosComponent },
   { path: 'index', component: MainPageComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'createaccount', component: CreateAccountComponent }
+  { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'about', component: AboutComponent }
   
 ];
 
