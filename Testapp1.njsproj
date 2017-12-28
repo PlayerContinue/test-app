@@ -23,7 +23,9 @@
     <Content Include=".angular-cli.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="src\app\bootstrap.css" />
+    <Content Include="src\app\_mockitems\mockregquestions.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="README.md" />
@@ -40,13 +42,13 @@
     <TypeScriptCompile Include="src\app\Hero.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\_Services\log.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\mock-heroes.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\main.ts" />
-    <TypeScriptCompile Include="src\app\Objects\pageListing.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\test.ts" />
     <TypeScriptCompile Include="src\typings.d.ts" />
@@ -63,9 +65,10 @@
     <Folder Include="src" />
     <Folder Include="src\app" />
     <Folder Include="src\app\main-page\" />
+    <Folder Include="src\app\_mockitems\" />
+    <Folder Include="src\app\_Services\" />
     <Folder Include="src\assets" />
     <Folder Include="src\environments" />
-    <Folder Include="src\app\Objects\" />
     <Folder Include="Testapp1" />
     <Folder Include="Testapp1\Testapp1" />
   </ItemGroup>

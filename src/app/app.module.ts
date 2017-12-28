@@ -10,9 +10,8 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from './hero.service';
+
 import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -23,6 +22,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
+
+import { LogService } from './_Services/log.service';
+import { MessageService } from './_Services/message.service';
+import { HeroService } from './hero.service';
 
 @NgModule({
     declarations: [
@@ -53,7 +56,7 @@ import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-fo
             InMemoryDataService, { dataEncapsulation: false }
         )
     ],
-    providers: [HeroService, MessageService],
+    providers: [HeroService, MessageService, LogService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

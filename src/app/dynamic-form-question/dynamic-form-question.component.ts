@@ -9,6 +9,7 @@ import { QuestionBase } from '../_Objects/Forms/question-base';
   styleUrls: ['./dynamic-form-question.component.css']
 })
 export class DynamicFormQuestionComponent {
+    //Allowed Question Types: dropdown,textbox,select
     @Input() question: QuestionBase<any>;
     @Input() form: FormGroup;
     get isValid() { return this.form.controls[this.question.key].valid; }
