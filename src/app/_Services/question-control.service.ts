@@ -31,15 +31,13 @@ export class QuestionControlService {
 
 
 
-    toFormGroup(obsQuestions: Observable<QuestionBase<any>[]>): FormGroup {
+    toFormGroup(questions: QuestionBase<any>[] ) {
         let group: any = {};
-        obsQuestions.subscribe( questions => questions.forEach(question =>
-        {
-            group[question.key] = question.required ?
-
-                new FormControl(question.value || '', Validators.required) :
-                new FormControl(question.value || '');
-        }));
+    
+        questions.forEach(question => {
+          group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
+                                                  : new FormControl(question.value || '');
+        });
         return new FormGroup(group);
-    }
+      }
 }

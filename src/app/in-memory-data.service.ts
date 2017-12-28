@@ -31,7 +31,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 "controlType": "textbox",
                 "key": "firstName",
                 "label": "First name",
-                "value": "Bombasto",
+                "value": "",
                 "required": true,
                 "order": 1
             }
