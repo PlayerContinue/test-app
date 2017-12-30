@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     getQuestions() : void{
         this.obsQuestions =  this.qcs.getQuestions("/api/registration");
         this.obsQuestions.subscribe(questions => 
-            this.questions = questions
+            this.questions = questions.sort((a,b) => a.order - b.order)
         );
 
         this.obsQuestions.subscribe(questions => this.form = this.qcs.toFormGroup(questions));
