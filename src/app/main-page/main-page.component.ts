@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageListing } from '../Objects/pageListing';
+﻿import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
