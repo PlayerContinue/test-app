@@ -21,41 +21,9 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
-<<<<<<< HEAD
-import { AboutComponent } from './about/about.component';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-    FavoriteHerosComponent,
-    SizerComponent,
-    MainPageComponent,
-    RegistrationComponent,
-    NavbarComponent,
-    CreateAccountComponent,
-    AboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
-  ],
-  providers: [HeroService, MessageService],
-  bootstrap: [AppComponent]
-=======
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
+import { AboutComponent} from './about/about.component';
+
 
 import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
@@ -75,7 +43,8 @@ import { HeroService } from './hero.service';
         RegistrationComponent,
         NavbarComponent,
         CreateAccountComponent,
-        DynamicFormQuestionComponent
+        DynamicFormQuestionComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
@@ -92,6 +61,5 @@ import { HeroService } from './hero.service';
     ],
     providers: [HeroService, MessageService, LogService],
     bootstrap: [AppComponent]
->>>>>>> Adding-Form
 })
 export class AppModule { }
