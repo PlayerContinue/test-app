@@ -1,11 +1,20 @@
 ﻿<div [formGroup] ="form">
-  <label [attr.for]="question.key">{{question.key}}</label>
-  <div [ngSwitch] ="question.controlType | lowercase ">
+    <label *ngIf="question.labelPosition==='above'" [attr.for]="question.key">{{question.label}}</label>
+  <div [ngSwitch] ="question.controlType | lowercase">
+    <label *ngIf="question.labelPosition==='left'" [attr.for]="question.key">{{question.label}}</label>
+    
     <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type] ="question.type" />
+    
     <select *ngSwitchCase="'dropdown'" [formControlName]="question.key">
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
     </select>
-
+    
+    <label *ngIf="question.labelPosition==='right'" [attr.for]="question.key">{{question.label}}</label>
+    
+    <label class="errorMessage" *ngIf="isDirtyAndNotValid">{{question.label}} is required*</label>
+  
   </div>
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  
+  <label *ngIf="question.labelPosition==='below'" [attr.for]="question.key">{{question.label}}</label>
+
 </div>

@@ -7,8 +7,10 @@
 
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
+    <div *ngFor="let row of questions" class="form-row">
+      <div *ngFor="let question of row">
       <app-question [question]="question" [form]="form"></app-question>
+    </div>
     </div>
     <div class="form-row">
       <button type="submit" [disabled]="!form.valid">Submit</button>

@@ -29,7 +29,16 @@ export class QuestionControlService {
             ); 
     }
 
+get getDefaultQuestions():QuestionBase<any>[][]{
+    return [[]];
+}
 
+/**
+ * Creates a default form group for use before the data is loaded
+ */
+    get getDefaultFormGroup():FormGroup{
+        return this.toFormGroup(this.getDefaultQuestions[0]);
+    }
 
     toFormGroup(questions: QuestionBase<any>[] ) {
         let group: any = {};

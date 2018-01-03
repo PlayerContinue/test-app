@@ -12,6 +12,38 @@ export class DynamicFormQuestionComponent {
     //Allowed Question Types: dropdown,textbox,select
     @Input() question: QuestionBase<any>;
     @Input() form: FormGroup;
-    get isValid() { return this.form.controls[this.question.key].valid; }
 
+    /**
+     * Check if a question is ready to be displayed
+     * @param question 
+     */
+    private checkIfQuestionReady(question:QuestionBase<any>){
+        if(question.key===""){
+          return true;
+        }
+
+        if(typeof this.form.controls[question.key] === "undefined"){
+          return true;
+        }
+
+
+        
+    }
+
+    //Check if the question value is valid
+    get isValid() { 
+      if(this.checkIfQuestionReady(this.question)){
+        return true;
+      }else{
+      return this.question.key!=="" && this.form.controls[this.question.key].valid; 
+    }
+  }
+    //Check if the question has been touched and is not valid
+    get isDirtyAndNotValid() { 
+      if(this.checkIfQuestionReady(this.question)){
+        return true;
+      }else{
+        return !this.form.controls[this.question.key].valid && this.form.controls[this.question.key].dirty
+      }
+    }
 }
