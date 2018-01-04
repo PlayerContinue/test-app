@@ -13,6 +13,8 @@ export class DynamicFormQuestionComponent {
     @Input() question: QuestionBase<any>;
     @Input() form: FormGroup;
 
+    
+
     /**
      * Check if a question is ready to be displayed
      * @param question 
@@ -35,7 +37,7 @@ export class DynamicFormQuestionComponent {
       if(this.checkIfQuestionReady(this.question)){
         return true;
       }else{
-      return this.question.key!=="" && this.form.controls[this.question.key].valid; 
+      return this.form.controls[this.question.key].valid; 
     }
   }
     //Check if the question has been touched and is not valid
@@ -43,7 +45,8 @@ export class DynamicFormQuestionComponent {
       if(this.checkIfQuestionReady(this.question)){
         return true;
       }else{
-        return !this.form.controls[this.question.key].valid && this.form.controls[this.question.key].dirty
+        //Not Valid entry and form is dirty
+        return !this.form.controls[this.question.key].valid && this.form.dirty
       }
     }
 }

@@ -1,20 +1,33 @@
 ﻿<div [formGroup] ="form">
-    <label *ngIf="question.labelPosition==='above'" [attr.for]="question.key">{{question.label}}</label>
+    <label *ngIf="question.labelPosition==='above'" [attr.for]="question.key">
+      {{question.label}}
+      <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span>
+    </label>
   <div [ngSwitch] ="question.controlType | lowercase">
-    <label *ngIf="question.labelPosition==='left'" [attr.for]="question.key">{{question.label}}</label>
+    <label *ngIf="question.labelPosition==='left'" [attr.for]="question.key">
+      {{question.label}}
+      <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span>
+    </label>
     
     <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type] ="question.type" />
     
     <select *ngSwitchCase="'dropdown'" [formControlName]="question.key">
-      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      <option *ngFor="let opt of question.options" [value]="opt.key">
+        {{opt.value}}
+        <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span></option>
     </select>
     
-    <label *ngIf="question.labelPosition==='right'" [attr.for]="question.key">{{question.label}}</label>
+    <label *ngIf="question.labelPosition==='right'" [attr.for]="question.key">
+      {{question.label}}
+      <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span>
+    </label>
     
-    <label class="errorMessage" *ngIf="isDirtyAndNotValid">{{question.label}} is required*</label>
   
   </div>
   
-  <label *ngIf="question.labelPosition==='below'" [attr.for]="question.key">{{question.label}}</label>
+  <label *ngIf="question.labelPosition==='below'" [attr.for]="question.key">
+    {{question.label}}
+    <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span>
+  </label>
 
 </div>

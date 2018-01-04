@@ -28,6 +28,7 @@ import { AboutComponent} from './about/about.component';
 import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
 import { HeroService } from './hero.service';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { HeroService } from './hero.service';
         NavbarComponent,
         CreateAccountComponent,
         DynamicFormQuestionComponent,
-        AboutComponent
+        AboutComponent,
+        DynamicFormComponent
     ],
     imports: [
         BrowserModule,
