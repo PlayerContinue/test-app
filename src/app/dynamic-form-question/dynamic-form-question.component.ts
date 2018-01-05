@@ -12,7 +12,7 @@ export class DynamicFormQuestionComponent {
     //Allowed Question Types: dropdown,textbox,select
     @Input() question: QuestionBase<any>;
     @Input() form: FormGroup;
-
+    @Input() questionsList: QuestionBase<any>[];
     
 
     /**
@@ -27,10 +27,11 @@ export class DynamicFormQuestionComponent {
         if(typeof this.form.controls[question.key] === "undefined"){
           return true;
         }
-
-
         
     }
+
+   
+
 
     //Check if the question value is valid
     get isValid() { 
@@ -40,6 +41,7 @@ export class DynamicFormQuestionComponent {
       return this.form.controls[this.question.key].valid; 
     }
   }
+
     //Check if the question has been touched and is not valid
     get isDirtyAndNotValid() { 
       if(this.checkIfQuestionReady(this.question)){

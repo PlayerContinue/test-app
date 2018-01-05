@@ -7,6 +7,7 @@
     row:number;
     controlType:string;
     labelPosition:string;
+    classOverride:string;
 
     constructor(options: {
         value?: T,
@@ -16,7 +17,8 @@
         order?: number,
         row?:number,
         controlType?: string,
-        labelPosition?:string
+        labelPosition?:string,
+        classOverride?:string
     } = {}) {
         this.value = options.value;
         this.key = options.key || '';
@@ -26,6 +28,7 @@
         this.row = options.row === undefined ? 1 : options.order;
         this.controlType = options.controlType || '';
         this.labelPosition = options.labelPosition || '';
+        this.classOverride = options.classOverride || '';
        
     }
 

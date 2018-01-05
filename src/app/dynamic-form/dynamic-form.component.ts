@@ -43,12 +43,16 @@ export class DynamicFormComponent implements OnInit {
       this.form = this.qcs.toFormGroup(questions);
       //Sort all the questions into rows
 
+      //Create rows from the row value
       for(var i=0;i<questions.length;i++){
+        if(typeof questions[i].row !== "undefined"){
           if(typeof this.questions[questions[i].row.toString()] === "undefined"){
               this.questions[questions[i].row.toString()] = [];
           }
           this.questions[questions[i].row.toString()].push(questions[i]);
-      }
+        }
+        }
+
 
       for(var i=0;i<this.questions.length;i++){
           this.questions[i].sort((a,b) => a.order - b.order);
@@ -63,6 +67,34 @@ export class DynamicFormComponent implements OnInit {
       );
       
   }
+
+   /**
+     * Set the classes of the question depending on the current position
+     * @param question: Current question being created
+     * @param questionsList: List of current questions in the current row
+     */
+    private getQuestionClasses(question:QuestionBase<any>, questionsList:QuestionBase<any>[]):String{
+        var classes = "form-group";      
+        
+        if(typeof question.classOverride === "undefined" || question.classOverride == ''){//No override classes provided, use default
+          //No class needed for single item, so skipped
+        switch(questionsList.length){
+            case 1:
+            classes += " col-md-12";
+            break;
+          case 2:
+            classes += " col-md-6";
+            break;
+          case 3:
+            classes += " col-md-4"
+        }
+      }else{//Class Override provided, use override classes
+        classes += " " + question.classOverride;
+      }
+  
+        return classes;
+  
+      }
 
 
 

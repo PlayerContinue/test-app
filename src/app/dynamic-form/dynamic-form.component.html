@@ -8,9 +8,9 @@
 <div>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <div *ngFor="let row of questions" class="form-row">
-        <div *ngFor="let question of row">
-        <app-question [question]="question" [form]="form"></app-question>
-      </div>
+        
+        <app-question *ngFor="let question of row" [class] = "getQuestionClasses(question,row)" [questionsList] = "row" [question]="question" [form]="form"></app-question>
+      
       </div>
       <div class="form-row">
         <button type="submit">Submit</button>
