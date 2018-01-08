@@ -14,7 +14,11 @@ import { QuestionControlService } from '../_Services/question-control.service';
 export class DynamicFormComponent implements OnInit {
   obsQuestions: Observable<QuestionBase<any>[]>;
   @Input() questions:QuestionBase<any>[][];
-  @Input() url:string;
+  @Input() action:string;//The url to post the results to
+  @Input() onsubmit = function(){}; //callback function for onsubmit. Default set in case one is not passed in
+  
+
+
   form: FormGroup;
   payLoad = '';
   constructor(private qcs: QuestionControlService) {
@@ -28,7 +32,7 @@ export class DynamicFormComponent implements OnInit {
   getQuestions() : void{
       this.form = this.qcs.getDefaultFormGroup;
       this.questions = this.qcs.getDefaultQuestions;
-      this.obsQuestions =  this.qcs.getQuestions(this.url);
+      this.obsQuestions =  this.qcs.getQuestions(this.action);
       this.obsQuestions.subscribe(questions =>
                this.makeQuestions(questions)
           );
@@ -99,7 +103,10 @@ export class DynamicFormComponent implements OnInit {
 
 
   onSubmit() {
-      if(this.form.valid){
+      
+    if(this.form.valid){
+          this.onsubmit();
+        
           this.payLoad = JSON.stringify(this.form.value);
       }else{
           //Mark the form as dirty

@@ -19,7 +19,11 @@ export class RegistrationComponent implements OnInit {
         
     }
 
-
- 
+    onsubmit(){
+        alert("success");
+    }
 
 }
+
+
+
