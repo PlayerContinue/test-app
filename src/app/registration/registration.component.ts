@@ -13,14 +13,14 @@ import { QuestionControlService } from '../_Services/question-control.service';
 
 
 export class RegistrationComponent implements OnInit {
-   
+    public url = "/api/registration";
     
     ngOnInit() {
         
     }
 
     onsubmit(){
-        
+        alert("success");
     }
 
 }

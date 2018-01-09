@@ -52,9 +52,7 @@ const stateList = [{ key:"test","value":"Alabama" },
 export class InMemoryDataService implements InMemoryDbService {
     
     createDb() {
-        const registration = { 
-            status: "success",
-            data:[
+        const registration = [
             {
                 "controlType": "textbox",
                 "key": "parent1Name",
@@ -215,9 +213,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 "order": 3,
                 "row":row + 6,
                 "labelPosition":"left"
-            }]
-        
-        };
+            }
 
 
 
@@ -264,9 +260,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 "type": "email",
                 "order": 2
             }*/
-       
-
-        const formSubmission = [];
+        ];
 
         const heroes = [
             { id: 11, name: 'Mr. Nice' },
@@ -280,6 +274,6 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 19, name: 'Magma' },
             { id: 20, name: 'Tornado' }
         ];
-        return { heroes, registration, formSubmission };
+        return { heroes, registration };
     }
 }
