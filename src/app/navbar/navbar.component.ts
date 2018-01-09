@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { PageListing } from '../_Objects/pageListing';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,9 +15,17 @@ export class NavbarComponent implements OnInit {
     { name: 'Registration', url: "/registration" },
     { name: 'About Us', url: "/about" }];
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
+  }
+
+  private isSelectedLink(link:PageListing):string{
+    var classes = "nav-item";
+    if(this.route.url === link.url){
+      classes += " active";
+    }
+    return classes;
   }
 
 }
