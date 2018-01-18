@@ -1,12 +1,16 @@
 ﻿<div class="form-group" [formGroup] ="form">
-    <label [attr.for]="question.key">
+    <label [attr.for]="question.key" *ngIf="(question.controlType | lowercase)!='mat-textbox'">
       {{question.label}}
       <span class="errorMessage" *ngIf="isDirtyAndNotValid">*</span>
     </label>
   <div [ngSwitch] ="question.controlType | lowercase">
     
     <input  class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type] ="question.type" />
-    
+
+    <mat-form-field  *ngSwitchCase="'mat-textbox'">
+        <input matInput [placeholder]="question.label"/>
+    </mat-form-field>
+
     <select class="form-control" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
       <option *ngFor="let opt of question.options" [value]="opt.key">
         {{opt.value}}

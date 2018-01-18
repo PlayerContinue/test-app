@@ -1,10 +1,45 @@
-﻿import { BrowserModule } from '@angular/platform-browser';
+﻿import '../polyfills';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule
+  } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -29,6 +64,9 @@ import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
 import { HeroService } from './hero.service';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
+import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
+
 
 @NgModule({
     declarations: [
@@ -46,7 +84,9 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
         CreateAccountComponent,
         DynamicFormQuestionComponent,
         AboutComponent,
-        DynamicFormComponent
+        DynamicFormComponent,
+        MainWrapperComponent,
+        SideNavBarComponent,
     ],
     imports: [
         BrowserModule,
@@ -59,7 +99,40 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
         // Remove it when a real server is ready to receive requests.
         HttpClientInMemoryWebApiModule.forRoot(
             InMemoryDataService, { dataEncapsulation: false }
-        )
+        ),
+        BrowserAnimationsModule,
+        MatAutocompleteModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatChipsModule,
+        MatDatepickerModule,
+        MatDialogModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatMenuModule,
+        MatNativeDateModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatRadioModule,
+        MatRippleModule,
+        MatSelectModule,
+        MatSidenavModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatSortModule,
+        MatTableModule,
+        MatTabsModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        MatStepperModule
+
     ],
     providers: [HeroService, MessageService, LogService],
     bootstrap: [AppComponent]

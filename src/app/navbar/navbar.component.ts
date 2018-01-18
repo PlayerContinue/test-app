@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import { PageListing } from '../_Objects/pageListing';
 @Component({
   selector: 'app-navbar',
@@ -6,12 +6,8 @@ import { PageListing } from '../_Objects/pageListing';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title:string =  "Valencia Summit Seals";
-  pages: PageListing[] = [
-    { name: 'Home', url: "/index" },
-    { name: 'Create Account', url: "/createaccount" },
-    { name: 'Registration', url: "/registration" },
-    { name: 'About Us', url: "/about" }];
+  @Input() title:string =  "Valencia Summit Seals";
+  @Input() pages: PageListing[];
 
   constructor() { }
 

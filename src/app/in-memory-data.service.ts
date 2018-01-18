@@ -213,7 +213,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 "order": 3,
                 "row":row + 6,
                 "labelPosition":"left"
-            }
+            },
+            
 
 
 
@@ -260,6 +261,168 @@ export class InMemoryDataService implements InMemoryDbService {
                 "type": "email",
                 "order": 2
             }*/
+
+            {
+                "controlType": "textbox",
+                "key": "parent1Name",
+                "label": "Parent Name",
+                "value": "",
+                "required": true,
+                "order": 1,
+                "row":row +7,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "email1",
+                "label": "Email",
+                "value": "",
+                "required": true,
+                "order": 2,
+                "row":row +7,
+                "labelPosition":"left",
+                "type":"email"
+            },
+            {
+                "controlType": "textbox",
+                "key": "homeAddress1",
+                "label": "Home Address",
+                "value": "",
+                "required": false,
+                "order": 1,
+                "row":row + 7 ,
+                "labelPosition":"left"
+
+            },
+            {
+                "controlType": "dropdown",
+                "key": "state1",
+                "label": "State",
+                "value": "",
+                "required": false,
+                "order": 2,
+                "row":row + 8,
+                "labelPosition":"left",
+                "options":stateList,
+                "classOverride":"col-md-4"
+
+            },
+            {
+                "controlType": "textbox",
+                "key": "city1",
+                "label": "City",
+                "value": "",
+                "required": false,
+                "order": 1,
+                "row":row + 8,
+                "labelPosition":"left",
+                "classOverride":"col-md-6"
+            },
+            {
+                "controlType": "textbox",
+                "key": "zipCode",
+                "label": "Zip Code",
+                "value": "",
+                "required": false,
+                "order": 3,
+                "row":row + 8,
+                "labelPosition":"left",
+                "classOverride":"col-md-2"
+
+            },
+
+            {
+                "controlType": "textbox",
+                "key": "homePhone1",
+                "label": "Home Phone",
+                "value": "",
+                "required": true,
+                "order": 1,
+                "row":row + 9,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "workPhone1",
+                "label": "Work Phone",
+                "value": "",
+                "required": false,
+                "order": 2,
+                "row":row + 9,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "cellPhone1",
+                "label": "Cell Phone",
+                "value": "",
+                "required": false,
+                "order": 3,
+                "row":row + 9,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "parentName2",
+                "label": "Parent Name",
+                "value": "",
+                "required": true,
+                "order": 1,
+                "row":row + 10,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "email2",
+                "label": "Email",
+                "value": "",
+                "required": true,
+                "order": 2,
+                "row": row + 10,
+                "labelPosition":"left",
+                "type":"email"
+            },
+            {
+                "controlType": "textbox",
+                "key": "homeAddress2",
+                "label": "Home Address",
+                "value": "",
+                "required": false,
+                "order": 1,
+                "row":row + 11,
+                "labelPosition":"left"
+
+            },
+            {
+                "controlType": "textbox",
+                "key": "homePhone2",
+                "label": "Home Phone",
+                "value": "",
+                "required": true,
+                "order": 1,
+                "row":row + 12,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "textbox",
+                "key": "workPhone2",
+                "label": "Work Phone",
+                "value": "",
+                "required": false,
+                "order": 2,
+                "row":row + 12,
+                "labelPosition":"left"
+            },
+            {
+                "controlType": "mat-textbox",
+                "key": "cellPhone2",
+                "label": "Cell Phone",
+                "value": "",
+                "required": false,
+                "order": 3,
+                "row":row + 12,
+                "labelPosition":"left"
+            }
         ];
 
         const heroes = [

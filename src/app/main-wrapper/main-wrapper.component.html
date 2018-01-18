@@ -1,0 +1,30 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="app-container" [class.example-is-mobile]="mobileQuery.matches">
+
+  <app-navbar [pages]='navbar' *ngIf="!mobileQuery.matches"></app-navbar>
+  <mat-toolbar color="primary" class="example-toolbar" *ngIf="mobileQuery.matches">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">{{title}}</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 120">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+      <app-side-nav-bar *ngIf="mobileQuery.matches" [pages]='navbar'></app-side-nav-bar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      
+      <mat-progress-bar color="blue" mode="determinate" value="50" bufferValue="75">
+      </mat-progress-bar>
+
+      <div [class]="!mobileQuery.matches ? 'content-pad-full' : 'content-pad-mobile'">
+        <router-outlet class="navpad"></router-outlet>
+      </div>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
