@@ -4,10 +4,10 @@
     label: string;
     required: boolean;
     order: number;
-    row:number;
-    controlType:string;
-    labelPosition:string;
-    classOverride:string;
+    row: number;
+    controlType: string;
+    labelPosition: string;
+    classOverride: string;
 
     constructor(options: {
         value?: T,
@@ -15,10 +15,10 @@
         label?: string,
         required?: boolean,
         order?: number,
-        row?:number,
+        row?: number,
         controlType?: string,
-        labelPosition?:string,
-        classOverride?:string
+        labelPosition?: string,
+        classOverride?: string
     } = {}) {
         this.value = options.value;
         this.key = options.key || '';
@@ -29,7 +29,7 @@
         this.controlType = options.controlType || '';
         this.labelPosition = options.labelPosition || '';
         this.classOverride = options.classOverride || '';
-       
+
     }
 
 

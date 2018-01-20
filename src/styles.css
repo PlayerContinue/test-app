@@ -2,6 +2,7 @@
 /* Application-wide Styles */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
 h1 {
