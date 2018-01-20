@@ -16,9 +16,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      
-      <mat-progress-bar color="blue" mode="determinate" value="50" bufferValue="75">
-      </mat-progress-bar>
+   
 
       <div [class]="!mobileQuery.matches ? 'content-pad-full' : 'content-pad-mobile'">
         <router-outlet class="navpad"></router-outlet>

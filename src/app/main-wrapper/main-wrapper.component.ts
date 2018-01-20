@@ -1,5 +1,5 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
+import {MobileChecker} from '../_Objects/mobile-checker';
 
 
 @Component({
@@ -8,28 +8,25 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrls: ['./main-wrapper.component.css']
 })
 export class MainWrapperComponent implements OnInit {
-  events = [];
+  
+  private _mobileQueryListener:() => void;
+  
   opened = false;
-  mobileQuery: MediaQueryList;
   title = "Valencia Summit Seals"
+  mobileQuery:MobileChecker;
   navbar = [
     { name: 'Home', url: "/index" },
     { name: 'Create Account', url: "/createaccount" },
     { name: 'Registration', url: "/registration" },
     { name: 'About Us', url: "/about" }]
 
-  private _mobileQueryListener: () => void;
+  
 
-  constructor(changeDetectorRef:ChangeDetectorRef, media:MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width:600px)');
+  constructor(changeDetectorRef:ChangeDetectorRef) {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-
    }
 
-   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
   ngOnInit() {
   }
 
