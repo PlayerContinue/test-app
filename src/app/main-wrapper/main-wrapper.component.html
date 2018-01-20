@@ -1,20 +1,17 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="app-container" [class.example-is-mobile]="mobileQuery.matches">
 
-  <app-navbar [pages]='navbar' *ngIf="!mobileQuery.matches"></app-navbar>
-  <mat-toolbar color="primary" class="example-toolbar" *ngIf="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name">{{title}}</h1>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 120">
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-
       <app-side-nav-bar *ngIf="mobileQuery.matches" [pages]='navbar'></app-side-nav-bar>
     </mat-sidenav>
-
     <mat-sidenav-content>
    
 
