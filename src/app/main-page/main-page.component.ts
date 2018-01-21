@@ -7,8 +7,7 @@ import { MobileChecker } from '../_Objects/mobile-checker';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-
-
+  temp = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
 
   constructor() {

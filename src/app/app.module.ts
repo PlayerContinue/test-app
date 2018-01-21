@@ -66,6 +66,7 @@ import { HeroService } from './hero.service';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
+import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
         DynamicFormComponent,
         MainWrapperComponent,
         SideNavBarComponent,
+        ScrollingPanelComponent,
     ],
     imports: [
         BrowserModule,
