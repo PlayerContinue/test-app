@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Self} from '@angular/core';
 
 @Component({
   selector: 'app-scrolling-panel',
@@ -9,7 +9,7 @@ export class ScrollingPanelComponent implements OnInit {
   headerHeight: string;
   footerHeight: string;
   bodyHeight: string;
-  constructor() {}
+  constructor(@Self() private element: ElementRef ) {}
 
 
   ngOnInit() {
