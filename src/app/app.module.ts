@@ -67,6 +67,8 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.component';
+import { ScrollingTableComponent } from './scrolling-table/scrolling-table.component';
+import { EventRowComponent } from './event-row/event-row.component';
 
 
 @NgModule({
@@ -89,6 +91,8 @@ import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.compo
         MainWrapperComponent,
         SideNavBarComponent,
         ScrollingPanelComponent,
+        ScrollingTableComponent,
+        EventRowComponent,
     ],
     imports: [
         BrowserModule,

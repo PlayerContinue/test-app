@@ -1,17 +1,11 @@
 ﻿<mat-grid-list [cols]="4" rowHeight="25em">
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:yellow">
-      testaroonie
+      <app-scrolling-table style="height:100%"></app-scrolling-table>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:red">
-    <app-scrolling-panel style="height:100%">
-        <div sHead>
-            <h1>Hello World</h1>
-        </div>
+    <app-scrolling-panel style="height:100%;width:100%;">
         <div *ngFor="let test of temp" sBody>
-        {{test}}
-        </div>
-        <div sFoot>
-            <h1>Bye World</h1>
+        <app-event-row [eventData]="test"></app-event-row>
         </div>
       </app-scrolling-panel>
   </mat-grid-tile>
