@@ -1,14 +1,14 @@
 .scrollbar{
-    height:50%;
+    height:100%;
     overflow-y:auto;
 }
-.footer {
+/*.footer {
     height:25%;
 }
 
 .header {
     height:25%;
-}
+}*/
 
 
 .wrapper{

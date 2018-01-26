@@ -1,20 +1,24 @@
-<div class="event-container row">
-  <div class="event-left col-sm-4">
-    <div>
-      <p>{{eventData.date.getDate()}}</p>
-    </div>
-    <div>
-      <p>{{eventData.date.toLocaleString(locale, { month: "long" })}}</p>
-    </div>
-  </div>
-  
-    <div class="col-sm-4" *ngIf="eventData.img">
-      <img height="50px" width="50px" [src]="eventData.img" />
-    </div>
-    
-    <div ngClass="{'col-sm-4':eventData.img, 'col-sm-8':!eventData.img">
+
+<div class="event-container container row no-gutters" >
+
+    <div class="event-left col-4">
       <div>
-        <p>{{eventData.title}}</p>
+        <p class="text">{{eventData.date.getDate()}}</p>
       </div>
+      <div>
+        <h1 class="date">
+          {{eventData.date.toLocaleString(locale, { month: "long" }).substring(0,3)}}
+        </h1>
+      </div>
+    </div>
+
+    <div class="col-4" *ngIf="eventData.img">
+      <img class="event-image" [src]="eventData.img" />
+    </div>
+
+    <div ngClass="event-text {'col-4':eventData.img, 'col-8':!eventData.img}">
+      
+        <p>{{eventData.title}}adadgfdgggggggggggggadasdadsd</p>
+     
     </div>
 </div>

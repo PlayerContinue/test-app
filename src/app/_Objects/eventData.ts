@@ -6,7 +6,7 @@ export class EventData {
 
     img: string; // The image of the event
     title: string; // The title of the event
-    date: Date | string;
+    date: Date;
     constructor(options: {
         img?: string,
         date?: Date | string,
@@ -14,7 +14,7 @@ export class EventData {
     } = { title: 'empty' }) {
         this.img = options.img;
         this.title = options.title;
-        if (typeof options.date === 'string') {//Convert String Date to Object Date
+        if (typeof options.date === 'string') { // Convert String Date to Object Date
             options.date = new Date(options.date);
         }
         this.date = options.date;

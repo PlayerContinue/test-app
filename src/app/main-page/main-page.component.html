@@ -1,4 +1,4 @@
-﻿<mat-grid-list [cols]="4" rowHeight="25em">
+﻿<mat-grid-list [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:yellow">
       <app-scrolling-table style="height:100%"></app-scrolling-table>
   </mat-grid-tile>
