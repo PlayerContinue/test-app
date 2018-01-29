@@ -1,24 +1,32 @@
+<div class="event-container container row no-gutters">
 
-<div class="event-container container row no-gutters" >
+  <div class="event-left col-4">
+    <div>
+      <p class="text">{{eventData.date.getDate()}}</p>
+    </div>
+    <div>
+      <h1 class="date">
+        {{eventData.date.toLocaleString("en",{ month: "long" }).substring(0,3)}}
+      </h1>
+    </div>
+  </div>
 
-    <div class="event-left col-4">
-      <div>
-        <p class="text">{{eventData.date.getDate()}}</p>
+  <div class="col-4" *ngIf="eventData.img">
+    <img class="event-image" [src]="eventData.img" />
+  </div>
+
+ 
+
+
+
+  <div ngClass="event-text {'col-4':eventData.img, 'col-8':!eventData.img}">
+
+    <div class="media">
+      <div class="media-body">
+        <h5>{{eventData.title}}adadgfdgggggggggggggadasdadsd</h5>
+        test
       </div>
-      <div>
-        <h1 class="date">
-          {{eventData.date.toLocaleString(locale, { month: "long" }).substring(0,3)}}
-        </h1>
-      </div>
     </div>
 
-    <div class="col-4" *ngIf="eventData.img">
-      <img class="event-image" [src]="eventData.img" />
-    </div>
-
-    <div ngClass="event-text {'col-4':eventData.img, 'col-8':!eventData.img}">
-      
-        <p>{{eventData.title}}adadgfdgggggggggggggadasdadsd</p>
-     
-    </div>
+  </div>
 </div>

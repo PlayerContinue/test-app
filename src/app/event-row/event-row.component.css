@@ -13,9 +13,11 @@
     .event-left{
         color:white;
         background-color:blue;
+        
     }
     
     .event-left .text {
+        
         text-align: center;
         font-family:"Arial Black", Gadget, sans-serif;
     }
@@ -26,20 +28,21 @@
     }
 
     .event-text {
-        width:100%;
+        text-align:center;
+        float:none;
     }
 
     .event-text p {
         display: block;
-    display: -webkit-box;
-    max-width: 400px;
-    height: 50px;
-    margin: 0 auto;
-    line-height: 1.2;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+        display: -webkit-box;
+        max-width: 400px;
+        height: 50px;
+        margin: 0 auto;
+        line-height: 1.2;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
     }
 
