@@ -69,6 +69,7 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.component';
 import { ScrollingTableComponent } from './scrolling-table/scrolling-table.component';
 import { EventRowComponent } from './event-row/event-row.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { EventRowComponent } from './event-row/event-row.component';
         ScrollingPanelComponent,
         ScrollingTableComponent,
         EventRowComponent,
+        EventListComponent,
     ],
     imports: [
         BrowserModule,
