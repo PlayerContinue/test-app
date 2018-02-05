@@ -1,9 +1,11 @@
 ﻿<mat-grid-list [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
+ 
+ 
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:yellow">
       <app-scrolling-table style="height:100%"></app-scrolling-table>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:lightgray">
-    <app-event-list style="height:100%;width:100%;"></app-event-list>
+    <app-event-list url="/api/events" style="height:100%;width:100%;"></app-event-list>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:blue">
       testaroonie

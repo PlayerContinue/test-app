@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of'; 
+import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -21,28 +21,27 @@ export class QuestionControlService {
 
     // Todo: get from a remote source of question metadata
     // Todo: make asynchronous
-    getQuestions(url:string): Observable<QuestionBase<any>[]> {
+    getQuestions(url: string): Observable<QuestionBase<any>[]> {
         return this.http.get<QuestionBase<any>[]>(url).
             pipe(
-            tap(questions => this.log.log("fetched questions")),
+            tap(questions => this.log.log('fetched questions')),
             catchError(this.log.handleError('getQuestions', []))
-            ); 
+            );
     }
 
-get getDefaultQuestions():QuestionBase<any>[][]{
+get getDefaultQuestions(): QuestionBase<any>[][]{
     return [[]];
 }
 
 /**
  * Creates a default form group for use before the data is loaded
  */
-    get getDefaultFormGroup():FormGroup{
+    get getDefaultFormGroup(): FormGroup{
         return this.toFormGroup(this.getDefaultQuestions[0]);
     }
 
     toFormGroup(questions: QuestionBase<any>[] ) {
         let group: any = {};
-    
         questions.forEach(question => {
           group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
                                                   : new FormControl(question.value || '');

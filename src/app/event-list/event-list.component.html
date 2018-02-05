@@ -1,5 +1,6 @@
-<app-scrolling-panel style="height:100%;width:100%; background-color:gray;" >
-    <div *ngFor="let test of temp" sBody>
-    <app-event-row [eventData]="test"></app-event-row>
+<app-scrolling-panel *ngIf="!moreDetails" style="height:100%;width:100%; background-color:gray;" >
+    <div *ngFor="let event of events" sBody>
+    <app-event-row [eventWatcher]="EventDetails" [eventData]="event"></app-event-row>
     </div>
   </app-scrolling-panel>
+  <app-event-more-details style="width:100%;height:100%" [eventData]="currentEvent" [eventWatcher]="EventDetails" *ngIf="moreDetails"></app-event-more-details>
