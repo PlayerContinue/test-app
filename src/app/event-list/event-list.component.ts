@@ -16,13 +16,34 @@ export class EventListComponent implements OnInit {
   EventDetails = new EventListBase();
   obsEvents: Observable<EventData[]>;
   events: EventData[];
-
   constructor(private eventService: EventServices) {
     if (this.url !== '') {
-      this.obsEvents = eventService.getEvents(this.url);
-      this.obsEvents.subscribe(events => this.events = events);
+      eventService.getEvents(this.url).subscribe(
+        events => this.editEvents(events)
+      );
     }
     this.EventDetails.subscribe(events => this.showEventDetails(events));
+  }
+
+  private editEvents(events: EventData[]) {
+    if (events.length === 0) {
+      /*this.events = Array(50).fill(0).map((_, i) =>
+      new EventData({
+        id: i + 1, title: `Nav Item ${i + 1}`, img: 'assets/img/90px.jpg',
+        startDate: this.randomDate(new Date(2012, 0, 1), new Date()),
+        endDate: this.randomDate(new Date(2012, 0, 1), new Date()),
+        details: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry\'s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and scrambled it
+         to make a type specimen book. It has survived not only five centuries, but
+         also the leap into electronic typesetting, remaining essentially unchanged.
+          It was popularised in the 1960s with the release of Letraset sheets
+        containing Lorem Ipsum passages, and more recently with desktop publishing
+         software like Aldus PageMaker including versions of Lorem Ipsum.`
+      }));*/
+    }else {
+     this.events = events;
+    }
   }
 
   /**
