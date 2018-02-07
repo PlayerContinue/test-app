@@ -2,6 +2,7 @@
 import { MobileChecker } from '../_Objects/mobile-checker';
 import {EventData} from '../_Objects/eventData';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { URLListService } from '../_Services/urlListService.service';
 
 @Component({
   selector: 'app-main-page',
@@ -10,10 +11,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class MainPageComponent implements OnInit {
   mobileQuery: MobileChecker;
+  urlList: URLListService;
 
-
-
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private list: URLListService) {
+    this.urlList = list;
     this.mobileQuery = new MobileChecker(changeDetectorRef, media);
   }
 

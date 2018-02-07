@@ -64,6 +64,8 @@ import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
 import { HeroService } from './hero.service';
 import { EventServices } from './_Services/eventService.service';
+import {URLListService} from './_Services/urlListService.service';
+import {ApiDataService} from './_Services/apiDataService.service';
 
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
@@ -146,7 +148,13 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         MatStepperModule
 
     ],
-    providers: [HeroService, MessageService, LogService, EventServices],
+    providers: [
+        HeroService,
+        MessageService,
+        LogService,
+        EventServices,
+        URLListService,
+        ApiDataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import {EventData} from '../_Objects/eventData';
 import { LogService } from './log.service';
-
+import {APIData} from '../_Services/apiDataService.service';
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -16,10 +16,11 @@ const httpOptions = {
 export class EventServices {
     constructor(private http: HttpClient, private log: LogService) {}
 
-    getEvents(url: string): Observable<EventData[]> {
-        return this.http.get<EventData[]>(url).pipe(
-            tap(events => this.log.log('fetched events from' + url)),
+    getEvents(url: string): Observable<string> {
+        return this.http.get<string>(url).pipe(
+            tap(_ => this.log.log('fetched events from')),
             catchError(this.log.handleError('getEvents', []))
         );
+
     }
 }

@@ -12,6 +12,7 @@ export class EventData {
     endTime: string;
     location: string;
     details: string;
+
     constructor(options: {
         id: number,
         img?: string,

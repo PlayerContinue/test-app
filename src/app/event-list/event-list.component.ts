@@ -3,6 +3,7 @@ import { EventData } from '../_Objects/eventData';
 import { EventListBase } from '../_Objects/EventListBase';
 import { EventServices } from '../_Services/eventService.service';
 import { Observable } from 'rxjs/Observable';
+import {ApiDataService, APIData} from '../_Services/apiDataService.service';
 
 @Component({
   selector: 'app-event-list',
@@ -16,34 +17,27 @@ export class EventListComponent implements OnInit {
   EventDetails = new EventListBase();
   obsEvents: Observable<EventData[]>;
   events: EventData[];
-  constructor(private eventService: EventServices) {
-    if (this.url !== '') {
-      eventService.getEvents(this.url).subscribe(
-        events => this.editEvents(events)
+  eventServices: EventServices;
+  dataService: ApiDataService;
+
+  constructor(private eventService: EventServices, private api: ApiDataService) {
+    this.dataService = api;
+    this.eventServices = eventService;
+  }
+
+  ngOnInit() {
+    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    // Add 'implements OnInit' to the class.
+    if (typeof this.url !== 'undefined') {
+      this.eventServices.getEvents(this.url).subscribe(
+        (events: string) => this.editEvents(new APIData<EventData[]>({data: events}).data)
       );
     }
     this.EventDetails.subscribe(events => this.showEventDetails(events));
   }
 
   private editEvents(events: EventData[]) {
-    if (events.length === 0) {
-      /*this.events = Array(50).fill(0).map((_, i) =>
-      new EventData({
-        id: i + 1, title: `Nav Item ${i + 1}`, img: 'assets/img/90px.jpg',
-        startDate: this.randomDate(new Date(2012, 0, 1), new Date()),
-        endDate: this.randomDate(new Date(2012, 0, 1), new Date()),
-        details: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry\'s standard dummy text ever since
-        the 1500s, when an unknown printer took a galley of type and scrambled it
-         to make a type specimen book. It has survived not only five centuries, but
-         also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-        containing Lorem Ipsum passages, and more recently with desktop publishing
-         software like Aldus PageMaker including versions of Lorem Ipsum.`
-      }));*/
-    }else {
-     this.events = events;
-    }
+      this.events = events;
   }
 
   /**
@@ -57,9 +51,6 @@ export class EventListComponent implements OnInit {
     } else {
       this.moreDetails = false;
     }
-  }
-
-  ngOnInit() {
   }
 
   private randomDate(start: Date, end: Date) {

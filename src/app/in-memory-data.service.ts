@@ -1,5 +1,6 @@
 ﻿import { InMemoryDbService } from 'angular-in-memory-web-api';
 import {EventData} from './_Objects/eventData';
+import {APIData} from './_Services/apiDataService.service';
 const row = 1;
 const stateList = [{ key:"test","value":"Alabama" },
 { key:"test","value":"Alaska" },
@@ -438,11 +439,10 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 19, name: 'Magma' },
             { id: 20, name: 'Tornado' }
         ];
-
-        const events = JSON.stringify(Array(50).fill(0).map((_, i) =>
+        const eventTemp = Array(50).fill(0).map((_, i) =>
         new EventData({
           id: i + 1, title: `Nav Item ${i + 1}`/*, img: 'assets/img/90px.jpg'*/,
-          startDate: this.randomDate(new Date(2012, 0, 1), new Date()),
+          startDate: this.randomDate(new Date(2012, 0, 1), new Date()).,
           endDate: this.randomDate(new Date(2012, 0, 1), new Date()),
           details: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry\'s standard dummy text ever since
@@ -452,7 +452,8 @@ export class InMemoryDataService implements InMemoryDbService {
             It was popularised in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop publishing
            software like Aldus PageMaker including versions of Lorem Ipsum.`
-        })));
+        }));
+        const events = JSON.stringify(new APIData<EventData[]>({data:eventTemp}));
         return { heroes, registration, events };
     }
     private randomDate(start: Date, end: Date) {
