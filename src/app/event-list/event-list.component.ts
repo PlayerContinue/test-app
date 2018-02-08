@@ -3,7 +3,7 @@ import { EventData } from '../_Objects/eventData';
 import { EventListBase } from '../_Objects/EventListBase';
 import { EventServices } from '../_Services/eventService.service';
 import { Observable } from 'rxjs/Observable';
-import {ApiDataService, APIData} from '../_Services/apiDataService.service';
+import { ApiDataService, APIData, APIInterface } from '../_Services/apiDataService.service';
 
 @Component({
   selector: 'app-event-list',
@@ -20,25 +20,38 @@ export class EventListComponent implements OnInit {
   eventServices: EventServices;
   dataService: ApiDataService;
 
-  constructor(private eventService: EventServices, private api: ApiDataService) {
+  constructor(private api: ApiDataService) {
     this.dataService = api;
-    this.eventServices = eventService;
   }
 
   ngOnInit() {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
     if (typeof this.url !== 'undefined') {
-      this.eventServices.getEvents(this.url).subscribe(
-        (events: string) => this.editEvents(new APIData<EventData[]>({data: events}).data)
+      this.dataService.getData<APIData<EventData[]>>(this.url).subscribe(
+        events =>
+          this.editEvents(events)
       );
     }
     this.EventDetails.subscribe(events => this.showEventDetails(events));
   }
 
-  private editEvents(events: EventData[]) {
-      this.events = events;
+
+
+  private editEvents(events: APIData<EventData[]>[]) {
+    this.events = [];
+    /*events[0].data.forEach(function (value, index, array) {
+      this.events.push(new EventData(value));
+    }, this
+
+    );*/
+
+    this.dataService.unpackAPIData(events, EventData, function (value: EventData, index: number) {
+      this.events.push(value);
+    }, this);
+
   }
+
 
   /**
    * The current event results
@@ -51,10 +64,6 @@ export class EventListComponent implements OnInit {
     } else {
       this.moreDetails = false;
     }
-  }
-
-  private randomDate(start: Date, end: Date) {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
 }

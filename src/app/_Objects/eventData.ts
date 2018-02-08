@@ -33,12 +33,19 @@ export class EventData {
         this.details = options.details;
     }
 
+    
+
     private ConvertStringToDate(date: string | Date): Date {
+
         if (typeof date === 'string') { // Convert String Date to Object Date
             return new Date(date);
         }
 
         return date;
+    }
+
+    private randomDate(start: Date, end: Date) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
 
     get fullStartDate(): string {

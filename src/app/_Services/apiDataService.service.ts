@@ -16,35 +16,78 @@ export class ApiDataService {
 
     constructor(private http: HttpClient, private log: LogService) { }
 
-    public unwrapData<T>(data: APIData<T>): T {
-        return data.data;
-    }
 
-    public getData<T>(url: string): Observable<T> {
-        /*return this.http.get<T>(url, httpOptions).pipe(
+    /**
+     * Make a call to the API and return the data
+     * @param url - The API URL
+     */
+    getData<T>(url: string): Observable<T[]> {
+        return this.http.get<T[]>(url, httpOptions).pipe(
             tap(_ => this.log.log('fetched events from')),
             catchError(this.log.handleError('getEvents', []))
-        );*/
-        return null;
+        );
     }
+    
+    /**
+     * Upacks data provided from the API
+     * @param packed - The APIData object containing the list of data
+     * @param type - The type of data contained in the data segment
+     * @param callback - The function on what to do with the data after it has been turned into it's object
+     * @param thisArg - An object to which the this keyword
+     * can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    public unpackAPIData<T, Y>(packed: APIData<T>[] | APIData<T>,
+        type: { new(data): Y; }, callback: (T, number) => void, thisArg?: any): void {
+        if (Array.isArray(packed)) {
+            packed.forEach(function (value, index, array) {
+                this.unpackAPIData(value, type, callback, thisArg);
+            }, this
+            );
+        } else {
+            if (Array.isArray(packed.data)) {
+                packed.data.forEach(function (value, index, array) {
+                    // Converts data into an object and then passes to callback
+                    callback.call(this, ObjectCreator.createEntity(type, value), index);
+
+                }, thisArg);
+
+            } else {
+
+            }
+        }
+    }
+
+
 }
 
 /*
 Object for containing data returned from the API
 */
-export class APIData<T> {
+export class APIData<T> implements APIInterface<T> {
     data: T;
 
     constructor(options: {
-        data?: T | string
+        data?: T
     }) {
-        if (typeof options.data !== 'string') {
-            this.data = options.data;
-        } else {
-            this.data = JSON.parse(options.data).data;
-        }
+        this.data = options.data;
+    }
 
+}
+
+export interface APIInterface<T> {
+    data: T;
+}
+
+export class ObjectCreator<T> {
+    constructor(private testType: new (data: any) => T) {
 
     }
 
+    static createEntity<TEntity>(type: { new(data): TEntity; }, data: any): TEntity {
+        return new type(data);
+    }
+
+    getNew(data: any): T {
+        return new this.testType(data);
+    }
 }
