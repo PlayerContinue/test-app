@@ -37,7 +37,7 @@ export class ApiDataService {
      * can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
     public unpackAPIData<T, Y>(packed: APIData<T>[] | APIData<T>,
-        type: { new(data): Y; }, callback: (T, number) => void, thisArg?: any): void {
+        type: { new(data): Y; }, callback: (T, number?, Array?) => void, thisArg?: any): void {
         if (Array.isArray(packed)) {
             packed.forEach(function (value, index, array) {
                 this.unpackAPIData(value, type, callback, thisArg);
@@ -48,7 +48,6 @@ export class ApiDataService {
                 packed.data.forEach(function (value, index, array) {
                     // Converts data into an object and then passes to callback
                     callback.call(this, ObjectCreator.createEntity(type, value), index);
-
                 }, thisArg);
 
             } else {
