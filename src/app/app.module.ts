@@ -41,6 +41,7 @@ import {
     MatStepperModule
   } from '@angular/material';
 
+  import { CalendarModule } from 'angular-calendar';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -66,6 +67,7 @@ import { HeroService } from './hero.service';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
@@ -87,6 +89,7 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
         DynamicFormComponent,
         MainWrapperComponent,
         SideNavBarComponent,
+        CalendarComponent,
     ],
     imports: [
         BrowserModule,
@@ -131,8 +134,8 @@ import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        MatStepperModule
-
+        MatStepperModule,
+        CalendarModule.forRoot()
     ],
     providers: [HeroService, MessageService, LogService],
     bootstrap: [AppComponent]

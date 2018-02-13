@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
 
   summithoalink: string = "https://www.valenciasummithoa.org/";
+  sealsemail:string =  "valenciasummitseals@gmail.com";
+  sealsphone:string = "(802) 64-SEALS, or 802-647-3257";
 
   constructor() { }
 
