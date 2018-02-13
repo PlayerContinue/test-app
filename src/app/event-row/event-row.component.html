@@ -1,0 +1,26 @@
+
+<div class="event-container">
+
+  <div class="media">
+      
+    <div class="event-left">
+          <div>
+            <h5 class="text">{{eventData.startDate.getDate()}}</h5>
+          </div>
+          <div>
+            <h1 class="date">
+              {{eventData.startDate.toLocaleString("en",{ month: "long" }).substring(0,3)}}
+            </h1>
+          </div>
+        </div>
+
+      <img class="event-image align-self-start" *ngIf="eventData.img" [src]="eventData.img" alt="Generic placeholder image">
+      
+      <div class="media-body">
+        <h5 class="mt-0 truncate">{{eventData.title}}adsfsdfsfsdfsdfsadsg</h5>
+        <p>start:{{eventData.startTime}} - end:{{eventData.endTime}}</p>
+        <a *ngIf="this.eventWatcher" (click)="updateEvent()" type="button" style="float:right">more details</a>
+      </div>
+
+    </div>
+</div>

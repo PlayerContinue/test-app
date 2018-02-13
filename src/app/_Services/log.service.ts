@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
 
 
-@Injectable() 
+@Injectable()
 export class LogService {
     constructor(private messageService: MessageService) { }
 
@@ -33,6 +33,6 @@ export class LogService {
 
             // Let the app keep running by returning an empty result.
             return of(result as T);
-        }
+        };
     }
 }

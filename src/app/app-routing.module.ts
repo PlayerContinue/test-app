@@ -10,7 +10,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch:'full' },
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
@@ -18,12 +18,11 @@ const routes: Routes = [
   { path: 'index', component: MainPageComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'createaccount', component: CreateAccountComponent },
-  { path: 'about', component: AboutComponent }
-  
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
- exports:[RouterModule]
+ exports: [RouterModule]
 })
 export class AppRoutingModule { }

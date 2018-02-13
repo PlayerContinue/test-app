@@ -6,7 +6,7 @@ import { PageListing } from '../_Objects/pageListing';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() title:string =  "Valencia Summit Seals";
+  @Input() title = 'Valencia Summit Seals';
   @Input() pages: PageListing[];
 
   constructor() { }

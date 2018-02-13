@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<mat-grid-list [cols]="4" rowHeight="10em"> -->
   <mat-grid-tile colspan="2" rowspan="1">
     testaroonie
@@ -10,6 +11,22 @@
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1">
     <app-calendar></app-calendar>
+=======
+﻿<mat-grid-list [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
+ 
+ 
+  <mat-grid-tile colspan="2" rowspan="1" style="background-color:yellow">
+      <app-scrolling-table style="height:100%"></app-scrolling-table>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1" style="background-color:lightgray">
+    <app-event-list [url]="urlList.eventsUrl" style="height:100%;width:100%;"></app-event-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1" style="background-color:blue">
+      testaroonie
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1" style="background-color:green">
+      testaroonie
+>>>>>>> RealApp1
   </mat-grid-tile>
 </mat-grid-list>
 

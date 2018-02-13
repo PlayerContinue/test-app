@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     MatAutocompleteModule,
     MatButtonModule,
@@ -39,7 +39,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule
-  } from '@angular/material';
+} from '@angular/material';
 
   import { CalendarModule } from 'angular-calendar';
 
@@ -48,7 +48,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { FavoriteHerosComponent } from './favorite-heros/favorite-heros.component';
@@ -58,16 +58,28 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
-import { AboutComponent} from './about/about.component';
+import { AboutComponent } from './about/about.component';
 
 
 import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
 import { HeroService } from './hero.service';
+import { EventServices } from './_Services/eventService.service';
+import {URLListService} from './_Services/urlListService.service';
+import {ApiDataService} from './_Services/apiDataService.service';
+
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
+<<<<<<< HEAD
 import { CalendarComponent } from './calendar/calendar.component';
+=======
+import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.component';
+import { ScrollingTableComponent } from './scrolling-table/scrolling-table.component';
+import { EventRowComponent } from './event-row/event-row.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { EventMoreDetailsComponent } from './event-more-details/event-more-details.component';
+>>>>>>> RealApp1
 
 
 @NgModule({
@@ -89,7 +101,15 @@ import { CalendarComponent } from './calendar/calendar.component';
         DynamicFormComponent,
         MainWrapperComponent,
         SideNavBarComponent,
+<<<<<<< HEAD
         CalendarComponent,
+=======
+        ScrollingPanelComponent,
+        ScrollingTableComponent,
+        EventRowComponent,
+        EventListComponent,
+        EventMoreDetailsComponent,
+>>>>>>> RealApp1
     ],
     imports: [
         BrowserModule,
@@ -137,7 +157,13 @@ import { CalendarComponent } from './calendar/calendar.component';
         MatStepperModule,
         CalendarModule.forRoot()
     ],
-    providers: [HeroService, MessageService, LogService],
+    providers: [
+        HeroService,
+        MessageService,
+        LogService,
+        EventServices,
+        URLListService,
+        ApiDataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

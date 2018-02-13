@@ -7,7 +7,7 @@ import { PageListing } from '../_Objects/pageListing';
   styleUrls: ['./side-nav-bar.component.css']
 })
 export class SideNavBarComponent implements OnInit {
-  @Input() pages:PageListing[];
+  @Input() pages: PageListing[];
   constructor() { }
 
   ngOnInit() {
