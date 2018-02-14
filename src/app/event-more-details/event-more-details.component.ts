@@ -7,7 +7,7 @@ import { EventData } from '../_Objects/eventData';
   styleUrls: ['./event-more-details.component.css']
 })
 export class EventMoreDetailsComponent implements OnInit {
-  @Input() eventWatcher: EventListBase;
+  @Input() eventWatcher: EventListBase<EventData>;
   @Input() eventData: EventData;
   constructor() {}
 

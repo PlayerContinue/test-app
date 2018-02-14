@@ -1,18 +1,29 @@
-﻿<mat-grid-list [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
- 
- 
+﻿<!--<mat-grid-list [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:yellow">
-      <app-scrolling-table style="height:100%"></app-scrolling-table>
+    <app-scrolling-table style="height:100%"></app-scrolling-table>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:lightgray">
     <app-event-list [url]="urlList.eventsUrl" style="height:100%;width:100%;"></app-event-list>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:blue">
-      testaroonie
+    testaroonie
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" style="background-color:green">
-      testaroonie
+    testaroonie
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list>-->
 
-
+<app-mat-expandingboxwrapper [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
+  <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:green">
+    <app-event-list [url]="urlList.eventsUrl" style="height:100%;width:100%;"></app-event-list>
+  </app-mat-expandingbox>
+  <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:blue">
+    
+  </app-mat-expandingbox>
+  <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:red">
+    
+  </app-mat-expandingbox>
+  <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:orange">
+    
+  </app-mat-expandingbox>
+</app-mat-expandingboxwrapper>

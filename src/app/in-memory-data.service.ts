@@ -455,7 +455,6 @@ export class InMemoryDataService implements InMemoryDbService {
         }));
         const eventArray = [(new APIData<EventData[]>({data:eventTemp}))];
         const events = JSON.parse(JSON.stringify(eventArray));
-       
         return { heroes, registration, events };
     }
     private randomDate(start: Date, end: Date) {

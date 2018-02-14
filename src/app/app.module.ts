@@ -40,7 +40,7 @@ import {
     MatTooltipModule,
     MatStepperModule
 } from '@angular/material';
-
+import { MatExtensionModule } from './mat-extension-module/mat-extension.module';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -100,7 +100,7 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         ScrollingTableComponent,
         EventRowComponent,
         EventListComponent,
-        EventMoreDetailsComponent,
+        EventMoreDetailsComponent
     ],
     imports: [
         BrowserModule,
@@ -145,7 +145,8 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        MatStepperModule
+        MatStepperModule,
+        MatExtensionModule
 
     ],
     providers: [

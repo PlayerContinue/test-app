@@ -9,7 +9,7 @@ import {EventListBase} from '../_Objects/EventListBase';
 })
 export class EventRowComponent implements OnInit {
   @Input() eventData: EventData;
-  @Input() eventWatcher: EventListBase;
+  @Input() eventWatcher: EventListBase<EventData>;
   constructor() { }
 
   private updateEvent() {

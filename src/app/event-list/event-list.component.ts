@@ -14,7 +14,7 @@ export class EventListComponent implements OnInit {
   @Input() url: string;
   moreDetails = false;
   currentEvent: EventData;
-  EventDetails = new EventListBase();
+  EventDetails = new EventListBase<EventData>();
   obsEvents: Observable<EventData[]>;
   events: EventData[];
   eventServices: EventServices;
@@ -47,6 +47,7 @@ export class EventListComponent implements OnInit {
     );*/
 
     this.dataService.unpackAPIData(events, EventData, function (value: EventData, index: number) {
+      // TODO add cache method
       this.events.push(value);
     }, this);
 
