@@ -13,7 +13,7 @@
   </mat-grid-tile>
 </mat-grid-list>-->
 
-<app-mat-expandingboxwrapper [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
+<app-mat-expandingboxwrapper [allowExpansion]="!mobileQuery.matches" [cols]="mobileQuery.matches ? 2 : 4" rowHeight="25em">
   <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:green">
     <app-event-list [url]="urlList.eventsUrl" style="height:100%;width:100%;"></app-event-list>
   </app-mat-expandingbox>

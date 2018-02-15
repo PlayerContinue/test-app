@@ -5,7 +5,10 @@ import { MatGridTile } from '@angular/material';
 @Component({
   selector: 'app-mat-expandingbox',
   templateUrl: './mat-expandingbox.component.html',
-  styleUrls: ['../mat-expandingboxwrapper/mat-expandingboxwrapper.component.css']
+  styleUrls: [
+    '../mat-expandingboxwrapper/mat-expandingboxwrapper.component.css',
+    './mat-expandingbox.component.css'
+  ]
 })
 export class MatExpandingBoxComponent extends MatGridTile implements AfterViewInit {
   @HostBinding('class.mat-grid-tile') field = true;
