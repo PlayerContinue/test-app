@@ -1,7 +1,9 @@
 ﻿import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'angular-calendar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -41,7 +43,6 @@ import {
     MatStepperModule
 } from '@angular/material';
 
-  import { CalendarModule } from 'angular-calendar';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -59,7 +60,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
 import { AboutComponent } from './about/about.component';
-
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LogService } from './_Services/log.service';
 import { MessageService } from './_Services/message.service';
@@ -71,15 +72,12 @@ import {ApiDataService} from './_Services/apiDataService.service';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 import { SideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
-<<<<<<< HEAD
 import { CalendarComponent } from './calendar/calendar.component';
-=======
 import { ScrollingPanelComponent } from './scrolling-panel/scrolling-panel.component';
 import { ScrollingTableComponent } from './scrolling-table/scrolling-table.component';
 import { EventRowComponent } from './event-row/event-row.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventMoreDetailsComponent } from './event-more-details/event-more-details.component';
->>>>>>> RealApp1
 
 
 @NgModule({
@@ -101,18 +99,16 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         DynamicFormComponent,
         MainWrapperComponent,
         SideNavBarComponent,
-<<<<<<< HEAD
         CalendarComponent,
-=======
         ScrollingPanelComponent,
         ScrollingTableComponent,
         EventRowComponent,
         EventListComponent,
         EventMoreDetailsComponent,
->>>>>>> RealApp1
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         FormsModule,
         AppRoutingModule,
         HttpClientModule,
@@ -155,8 +151,10 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         MatToolbarModule,
         MatTooltipModule,
         MatStepperModule,
-        CalendarModule.forRoot()
+        CalendarModule.forRoot(),
+        NgbModalModule.forRoot(),
     ],
+    exports: [CalendarComponent],
     providers: [
         HeroService,
         MessageService,

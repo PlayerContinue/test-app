@@ -15,7 +15,8 @@ export class MainWrapperComponent implements OnInit {
     { name: 'Home', url: '/index' },
     { name: 'Create Account', url: '/createaccount' },
     { name: 'Registration', url: '/registration' },
-    { name: 'About Us', url: '/about' }
+    { name: 'About Us', url: '/about' },
+    { name: 'Calendar', url: '/calendar'},
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {

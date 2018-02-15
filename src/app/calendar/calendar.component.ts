@@ -49,7 +49,7 @@ export class CalendarComponent implements OnInit {
   }
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
-/*
+
   view: string = 'month';
 
   viewDate: Date = new Date();
@@ -112,10 +112,9 @@ export class CalendarComponent implements OnInit {
   ];
 
   activeDayIsOpen: boolean = true;
-*/
-  //constructor(private modal: NgbModal) {}
-  constructor() { }
-/*
+
+  constructor(private modal: NgbModal) {}
+
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
       if (
@@ -160,5 +159,5 @@ export class CalendarComponent implements OnInit {
     });
     this.refresh.next();
   }
-*/
+
 }

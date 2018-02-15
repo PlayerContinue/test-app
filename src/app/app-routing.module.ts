@@ -8,6 +8,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AboutComponent } from './about/about.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'calendar', component: CalendarComponent},
 ];
 
 @NgModule({
