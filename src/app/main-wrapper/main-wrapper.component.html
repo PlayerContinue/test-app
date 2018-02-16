@@ -10,7 +10,7 @@
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <app-side-nav-bar *ngIf="mobileQuery.matches" [pages]='navbar'></app-side-nav-bar>
+      <app-side-nav-bar [pages]='navbar'></app-side-nav-bar>
     </mat-sidenav>
     <mat-sidenav-content>
    
