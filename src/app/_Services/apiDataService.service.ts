@@ -21,13 +21,12 @@ export class ApiDataService {
      * Make a call to the API and return the data
      * @param url - The API URL
      */
-    getData<T>(url: string): Observable<T[]> {
-        return this.http.get<T[]>(url, httpOptions).pipe(
+    getData<T>(url: string): Observable<APIData<T>[]> {
+        return this.http.get<APIData<T>[]>(url, httpOptions).pipe(
             tap(_ => this.log.log('fetched events from')),
             catchError(this.log.handleError('getEvents', []))
         );
     }
-    
     /**
      * Upacks data provided from the API
      * @param packed - The APIData object containing the list of data
@@ -45,6 +44,7 @@ export class ApiDataService {
             );
         } else {
             if (Array.isArray(packed.data)) {
+                // TODO Check for non-array data
                 packed.data.forEach(function (value, index, array) {
                     // Converts data into an object and then passes to callback
                     callback.call(this, ObjectCreator.createEntity(type, value), index);

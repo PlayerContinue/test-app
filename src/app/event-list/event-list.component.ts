@@ -18,17 +18,15 @@ export class EventListComponent implements OnInit {
   obsEvents: Observable<EventData[]>;
   events: EventData[];
   eventServices: EventServices;
-  dataService: ApiDataService;
 
   constructor(private api: ApiDataService) {
-    this.dataService = api;
   }
 
   ngOnInit() {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
     if (typeof this.url !== 'undefined') {
-      this.dataService.getData<APIData<EventData[]>>(this.url).subscribe(
+      this.api.getData<EventData[]>(this.url).subscribe(
         events =>
           this.editEvents(events)
       );
@@ -46,7 +44,7 @@ export class EventListComponent implements OnInit {
 
     );*/
 
-    this.dataService.unpackAPIData(events, EventData, function (value: EventData, index: number) {
+    this.api.unpackAPIData(events, EventData, function (value: EventData, index: number) {
       // TODO add cache method
       this.events.push(value);
     }, this);

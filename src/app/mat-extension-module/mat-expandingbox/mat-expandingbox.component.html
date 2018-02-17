@@ -3,7 +3,15 @@
   
 </mat-grid-tile>-->
 
-<figure class="mat-figure">
-  <button class="expand-overlay" (click)="expandBlock()">test</button>
+<button class='expand-button' (click)="expandBlock()"><i class="fa fa-arrows-alt"></i></button>
+
+<figure class="mat-figure ">
+ 
+  
   <ng-content></ng-content>
+ 
 </figure>
+<div class="expand-overlay">
+    
+  </div>
+ 
