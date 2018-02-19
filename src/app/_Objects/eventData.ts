@@ -33,7 +33,6 @@ export class EventData {
         this.details = options.details;
     }
 
-    
 
     private ConvertStringToDate(date: string | Date): Date {
 

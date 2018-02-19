@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EventListBase } from '../_Objects/EventListBase';
 import { EventData } from '../_Objects/eventData';
 @Component({
@@ -9,6 +9,7 @@ import { EventData } from '../_Objects/eventData';
 export class EventMoreDetailsComponent implements OnInit {
   @Input() eventWatcher: EventListBase<EventData>;
   @Input() eventData: EventData;
+  @Output() lessDetails = new EventEmitter<EventData>();
   constructor() {}
 
   private addEventData(event: EventData) {
@@ -16,7 +17,7 @@ export class EventMoreDetailsComponent implements OnInit {
   }
 
   closeDetails() {
-    this.eventWatcher.addEvent(null);
+    this.lessDetails.emit(null);
   }
 
   ngOnInit() {
