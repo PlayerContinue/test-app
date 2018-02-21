@@ -16,6 +16,13 @@ export class MatExpandingBoxComponent extends MatGridTile implements AfterViewIn
   // The orignal row and column value
   originalRow: number;
   originalCol: number;
+  private _allowExpansion: boolean; // Stores if expansion is currently allowed
+  public set allowExpansion(value: boolean) {
+    this._allowExpansion = value;
+  }
+  public get allowExpansion() {
+    return this._allowExpansion;
+  }
   /**
    * Show or hide the current object
    */

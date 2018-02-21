@@ -3,7 +3,7 @@
   
 </mat-grid-tile>-->
 
-<button class='expand-button' (click)="expandBlock()"><i class="fa fa-arrows-alt"></i></button>
+<button class='expand-button' *ngIf="allowExpansion" (click)="expandBlock()"><i class="fa fa-arrows-alt"></i></button>
 
 <figure class="mat-figure ">
  

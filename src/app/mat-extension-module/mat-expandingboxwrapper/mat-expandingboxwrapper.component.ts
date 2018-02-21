@@ -20,7 +20,9 @@ export class MatExpandingBoxWrapperComponent extends MatGridList implements Afte
   @HostBinding('class.mat-grid-list') field = true;
   @Input()
   set allowExpansion(value: boolean) {
-
+    if (this._allowExpansion !== value) {
+      this.flipExpansionOnChildren(value);
+    }
     if (this.isExpanded && !value) {
       // Set to normal size if expanded when expansion not allowed
       this.expandWrapper(null);
@@ -42,6 +44,7 @@ export class MatExpandingBoxWrapperComponent extends MatGridList implements Afte
     this._tiles.toArray().forEach(function (item: MatExpandingBoxComponent, index: number, array: MatExpandingBoxComponent[]) {
       this.totalColumns += item.colspan;
       item.expandEvent.subscribe(($event: MatExpandingBoxComponent) => this.expandWrapper($event));
+      setTimeout(() => { item.allowExpansion = this._allowExpansion; } );
     }, this);
 
   }
@@ -64,7 +67,16 @@ export class MatExpandingBoxWrapperComponent extends MatGridList implements Afte
     }
   }
 
-  expandWrapper($event: MatExpandingBoxComponent) {
+  private flipExpansionOnChildren(value: boolean) {
+    if (typeof this._tiles !== 'undefined') {
+      this._tiles.toArray().forEach(function (item: MatExpandingBoxComponent, index: number, array: MatExpandingBoxComponent[]) {
+        item.allowExpansion = value;
+      }, this);
+
+    }
+  }
+
+  private expandWrapper($event: MatExpandingBoxComponent) {
     const _col = this.cols;
     const _row = this.totalColumns / this.cols;
     const expanded = this.isExpanded;
