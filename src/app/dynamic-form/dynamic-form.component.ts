@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
 import { QuestionBase } from '../_Objects/Forms/question-base';
 import { QuestionControlService } from '../_Services/question-control.service';
-
+import { ApiDataService, APIData } from '../_Services/apiDataService.service';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -12,9 +12,10 @@ import { QuestionControlService } from '../_Services/question-control.service';
   styleUrls: ['./dynamic-form.component.css']
 })
 export class DynamicFormComponent implements OnInit {
-  obsQuestions: Observable<QuestionBase<any>[]>;
+  obsQuestions: Observable<APIData<QuestionBase<any>[]>[]>;
   form: FormGroup;
   payLoad = '';
+  formList: { [key: string]: AbstractControl } = {};
   @Input() questions: QuestionBase<any>[][];
   @Input() action: string; // The url to post the results to
   @Input() onsubmit = function () { }; // callback function for onsubmit. Default set in case one is not passed in
@@ -22,7 +23,7 @@ export class DynamicFormComponent implements OnInit {
 
 
 
-  constructor(private qcs: QuestionControlService) {
+  constructor(private qcs: QuestionControlService, private dataService: ApiDataService) {
 
   }
 
@@ -35,41 +36,41 @@ export class DynamicFormComponent implements OnInit {
     this.questions = this.qcs.getDefaultQuestions;
     this.obsQuestions = this.qcs.getQuestions(this.action);
     this.obsQuestions.subscribe(questions =>
-      this.makeQuestions(questions)
-    );
+      (this.dataService.unpackAPIData(questions, QuestionBase, this.makeQuestions, this).then(this.postMakeQuestions.call(this))
+    ));
 
+  }
+
+  private postMakeQuestions(): void {
+    this.form = new FormGroup(this.formList);
+    for (let i = 0; i < this.questions.length; i++) {
+      this.questions[i].sort((a, b) => a.order - b.order);
+    }
+
+    /*questions.forEach(question => (function () {
+      if (typeof this.questions[question.row] === 'undefined') {
+        this.questions[question.row] = [];
+      }
+      this.questions[question.row][question.order] = question;
+    })
+    );*/
   }
 
   /**
    * Make the questions list from the current list
    * @param questions - The list of questions to display
    */
-  makeQuestions(questions: QuestionBase<any>[]) {
-    this.form = this.qcs.toFormGroup(questions);
+  makeQuestions(questions: QuestionBase<any>) {
+    this.qcs.toFormGroup(questions, this.formList);
     // Sort all the questions into rows
 
     // Create rows from the row value
-    for (let i = 0; i < questions.length; i++) {
-      if (typeof questions[i].row !== 'undefined') {
-        if (typeof this.questions[questions[i].row.toString()] === 'undefined') {
-          this.questions[questions[i].row.toString()] = [];
+    if (typeof questions.row !== 'undefined') {
+        if (typeof this.questions[questions.row.toString()] === 'undefined') {
+          this.questions[questions.row.toString()] = [];
         }
-        this.questions[questions[i].row.toString()].push(questions[i]);
+        this.questions[questions.row.toString()].push(questions);
       }
-    }
-
-
-    for (let i = 0; i < this.questions.length; i++) {
-      this.questions[i].sort((a, b) => a.order - b.order);
-    }
-
-    questions.forEach(question => (function () {
-      if (typeof this.questions[question.row] === 'undefined') {
-        this.questions[question.row] = [];
-      }
-      this.questions[question.row][question.order] = question;
-    })
-    );
 
   }
 

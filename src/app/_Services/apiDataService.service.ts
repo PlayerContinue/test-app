@@ -36,28 +36,62 @@ export class ApiDataService {
      * can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
     public unpackAPIData<T, Y>(packed: APIData<T>[] | APIData<T>,
-        type: { new(data): Y; }, callback: (T, number?, Array?) => void, thisArg?: any): void {
+        type: { new(data): Y; }, callback: (T, number?, Array?) => void, thisArg?: any): Promise<{}> {
         if (Array.isArray(packed)) {
             packed.forEach(function (value, index, array) {
                 this.unpackAPIData(value, type, callback, thisArg);
             }, this
             );
         } else {
-            if (Array.isArray(packed.data)) {
-                // TODO Check for non-array data
-                packed.data.forEach(function (value, index, array) {
-                    // Converts data into an object and then passes to callback
-                    callback.call(this, ObjectCreator.createEntity(type, value), index);
-                }, thisArg);
-
-            } else {
-
-            }
+          return this.unpackAPIDataSync(packed, type, callback, thisArg);
         }
     }
 
+    private unpackAPIDataSync<T, Y> (packed: APIData<T>,
+        type: { new(data): Y; }, callback: (T, number?, Array?) => void, thisArg?: any): Promise<{}> {
+        if (Array.isArray(packed.data)) {
+            // TODO Check for non-array data
+
+            return new Promise(function (resolve, reject) {
+                packed.data.forEach(function (value, index, array) {
+                    // Converts data into an object and then passes to callback
+                    callback.call(this, ObjectCreator.createEntity(type, value), index, array);
+                }, thisArg);
+                resolve();
+            });
+        } else {
+            return new Promise(function(resolve, reject){
+                callback.call(this, ObjectCreator.createEntity(type, packed.data), 0, [packed.data]);
+                resolve();
+            });
+        }
+    }
+ /**
+     * Upacks data provided from the API Aycnronously
+     * @param packed - The APIData object containing the list of data
+     * @param type - The type of data contained in the data segment
+     * @param callback - The function on what to do with the data after it has been turned into
+     *  it's object, please note must be asyncrounous
+     * @param thisArg - An object to which the this keyword
+     * can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    public unpackAPIDataAsync<T, Y> (packed: APIData<T>,
+        type: { new(data): Y; }, callback: (T, number?, Array?) => void, thisArg?: any): Promise<{}> {
+            if (Array.isArray(packed)) {
+                packed.forEach(function (value, index, array) {
+                    this.unpackAPIData(value, type, callback, thisArg);
+                }, this
+                );
+            } else {
+              return this.unpackAPIData(packed, type, callback, thisArg);
+            }
+
+        }
+
+
 
 }
+
 
 /*
 Object for containing data returned from the API
