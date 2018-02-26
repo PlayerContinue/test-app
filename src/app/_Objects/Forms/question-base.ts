@@ -25,7 +25,7 @@
         this.label = options.label || '';
         this.required = !!options.required;
         this.order = options.order === undefined ? 1 : options.order;
-        this.row = options.row === undefined ? 1 : options.order;
+        this.row = options.row === undefined ? 1 : options.row;
         this.controlType = options.controlType || '';
         this.labelPosition = options.labelPosition || '';
         this.classOverride = options.classOverride || '';

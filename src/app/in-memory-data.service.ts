@@ -217,52 +217,6 @@ export class InMemoryDataService implements InMemoryDbService {
                 'labelPosition': 'left'
             },
 
-
-
-
-            /*{
-                'controlType': 'dropdown',
-                'key': 'brave',
-                'label': 'Bravery Rating',
-                'options': [
-                    {
-                        'key': 'solid',
-                        'value': 'Solid'
-                    },
-                    {
-                        'key': 'great',
-                        'value': 'Great'
-                    },
-                    {
-                        'key': 'good',
-                        'value': 'Good'
-                    },
-                    {
-                        'key': 'unproven',
-                        'value': 'Unproven'
-                    }
-                ],
-                'order': 3
-            },
-            {
-                'controlType': 'textbox',
-                'key': 'firstName',
-                'label': 'First name',
-                'value': '',
-                'required': true,
-                'order': 1
-            }
-            ,
-
-
-            {
-                'controlType': 'textbox',
-                'key': 'emailAddress',
-                'label': 'Email',
-                'type': 'email',
-                'order': 2
-            }*/
-
             {
                 'controlType': 'textbox',
                 'key': 'parent1Name',

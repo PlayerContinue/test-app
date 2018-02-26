@@ -13,7 +13,7 @@ import { ApiDataService, APIData } from '../_Services/apiDataService.service';
 })
 export class DynamicFormComponent implements OnInit {
   obsQuestions: Observable<APIData<QuestionBase<any>[]>[]>;
-  form: FormGroup;
+  form: FormGroup = new FormGroup({});
   payLoad = '';
   formList: { [key: string]: AbstractControl } = {};
   @Input() questions: QuestionBase<any>[][];
@@ -32,28 +32,36 @@ export class DynamicFormComponent implements OnInit {
   }
 
   getQuestions(): void {
-    this.form = this.qcs.getDefaultFormGroup;
     this.questions = this.qcs.getDefaultQuestions;
     this.obsQuestions = this.qcs.getQuestions(this.action);
-    this.obsQuestions.subscribe(questions =>
-      (this.dataService.unpackAPIData(questions, QuestionBase, this.makeQuestions, this).then(this.postMakeQuestions.call(this))
-    ));
+
+    this.obsQuestions.subscribe(questions => this.makeAsyncQuestions(questions));
 
   }
 
   private postMakeQuestions(): void {
     this.form = new FormGroup(this.formList);
+
+    // Sorts each of the rows by order
     for (let i = 0; i < this.questions.length; i++) {
       this.questions[i].sort((a, b) => a.order - b.order);
     }
 
-    /*questions.forEach(question => (function () {
-      if (typeof this.questions[question.row] === 'undefined') {
-        this.questions[question.row] = [];
-      }
-      this.questions[question.row][question.order] = question;
-    })
-    );*/
+  }
+
+  makeAsyncQuestions(questions: APIData<QuestionBase<any>[]>[]) {
+    const promises = this.dataService.unpackAPIDataAsync(questions, QuestionBase, (value, index, array) => {
+      console.log(index);
+    });
+
+    Promise.all(promises).then((results) => {
+      results.forEach(
+        (value, number, array) => {
+          this.makeQuestions(value.object);
+        }
+      );
+    }).then(() => this.postMakeQuestions());
+
   }
 
   /**
@@ -66,11 +74,11 @@ export class DynamicFormComponent implements OnInit {
 
     // Create rows from the row value
     if (typeof questions.row !== 'undefined') {
-        if (typeof this.questions[questions.row.toString()] === 'undefined') {
-          this.questions[questions.row.toString()] = [];
-        }
-        this.questions[questions.row.toString()].push(questions);
+      if (typeof this.questions[questions.row.toString()] === 'undefined') {
+        this.questions[questions.row.toString()] = [];
       }
+      this.questions[questions.row.toString()].push(questions);
+    }
 
   }
 
