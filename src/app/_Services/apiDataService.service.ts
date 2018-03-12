@@ -9,7 +9,8 @@ import { EventData } from '../_Objects/eventData';
 import { LogService } from './log.service';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': 'http://thirdtimesacharm.us-west-2.elasticbeanstalk.com' })
 };
 @Injectable()
 export class ApiDataService {
@@ -53,10 +54,10 @@ export class ApiDataService {
             if (Array.isArray(packed.data)) {
                 packed.data.forEach(function (value, index, array) {
                     // Converts data into an object and then passes to callback
-                    callback.call(this, ObjectCreator.createEntity(type, value), index, array);
+                    callback.call(thisArg, ObjectCreator.createEntity(type, value), index, array);
                 }, thisArg);
             } else {
-                callback.call(this, ObjectCreator.createEntity(type, packed.data), 0, [packed.data]);
+                callback.call(thisArg, ObjectCreator.createEntity(type, packed.data), 0, [packed.data]);
             }
             resolve();
         });

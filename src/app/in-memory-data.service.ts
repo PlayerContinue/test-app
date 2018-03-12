@@ -407,6 +407,7 @@ export class InMemoryDataService implements InMemoryDbService {
            software like Aldus PageMaker including versions of Lorem Ipsum.`
             }));
         const eventArray = (new APIData<EventData[]>({ data: eventTemp }));
+        const test = JSON.stringify(eventArray);
         const events = JSON.parse(JSON.stringify(eventArray));
         return { heroes, registration, events };
     }

@@ -66,6 +66,7 @@ import { HeroService } from './hero.service';
 import { EventServices } from './_Services/eventService.service';
 import {URLListService} from './_Services/urlListService.service';
 import {ApiDataService} from './_Services/apiDataService.service';
+import {LoadingBarModule} from './loadingbar/loading-bar.module';
 
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
@@ -100,7 +101,7 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         ScrollingTableComponent,
         EventRowComponent,
         EventListComponent,
-        EventMoreDetailsComponent
+        EventMoreDetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -111,9 +112,9 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
         // and returns simulated server responses.
         // Remove it when a real server is ready to receive requests.
-        HttpClientInMemoryWebApiModule.forRoot(
+        /*HttpClientInMemoryWebApiModule.forRoot(
             InMemoryDataService, { dataEncapsulation: false }
-        ),
+        ),*/
         BrowserAnimationsModule,
         MatAutocompleteModule,
         MatButtonModule,
@@ -146,7 +147,8 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         MatToolbarModule,
         MatTooltipModule,
         MatStepperModule,
-        MatExtensionModule
+        MatExtensionModule,
+        LoadingBarModule
 
     ],
     providers: [
