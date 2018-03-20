@@ -116,7 +116,10 @@ export class DynamicFormComponent implements OnInit {
 
     if (this.form.valid) {
       this.onsubmit();
-
+      this.dataService.submitData('http://thirdtimesacharm.us-west-2.elasticbeanstalk.com/api/forms/test', JSON.stringify(this.form.value))
+        .subscribe(results => function () {
+          alert(results);
+        });
       this.payLoad = JSON.stringify(this.form.value);
     } else {
       // Mark the form as dirty

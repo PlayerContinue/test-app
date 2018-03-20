@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  summithoalink: string = "https://www.valenciasummithoa.org/";
+  summithoalink = 'https://www.valenciasummithoa.org/';
 
   constructor() { }
 

@@ -9,14 +9,20 @@ import { EventData } from '../_Objects/eventData';
 import { LogService } from './log.service';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://thirdtimesacharm.us-west-2.elasticbeanstalk.com' })
+    headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://thirdtimesacharm.us-west-2.elasticbeanstalk.com'
+    })
 };
 @Injectable()
 export class ApiDataService {
 
     constructor(private http: HttpClient, private log: LogService) { }
 
+
+    submitData(url: string, body: any): Observable<any> {
+        return this.http.post<any>(url, body).pipe(catchError(this.log.handleError('submitData', [])));
+    }
 
     /**
      * Make a call to the API and return the data
