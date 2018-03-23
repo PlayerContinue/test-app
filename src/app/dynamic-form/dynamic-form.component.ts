@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { QuestionBase } from '../_Objects/Forms/question-base';
 import { QuestionControlService } from '../_Services/question-control.service';
-import { ApiDataService, APIData } from '../_Services/apiDataService.service';
+import { ApiDataService, APIData, APIForm } from '../_Services/apiDataService.service';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -116,11 +116,13 @@ export class DynamicFormComponent implements OnInit {
 
     if (this.form.valid) {
       this.onsubmit();
-      this.dataService.submitData('http://thirdtimesacharm.us-west-2.elasticbeanstalk.com/api/forms/test', JSON.stringify(this.form.value))
-        .subscribe(results => function () {
-          alert(results);
-        });
-      this.payLoad = JSON.stringify(this.form.value);
+      this.dataService.submitData(
+        'http://thirdtimesacharm.us-west-2.elasticbeanstalk.com/api/forms/test?XDEBUG_SESSION_START=netbeans-xdebug',
+        JSON.stringify(new APIData({data: new APIForm({ form: this.form.value, key: 'S76uQyhQ3jmDBhlpZg1A4aaNojOT1tyI' })})))
+          .subscribe(results => function () {
+            alert(results);
+          });
+      this.payLoad = JSON.stringify(new APIData({data: new APIForm({ form: this.form.value, key: 'S76uQyhQ3jmDBhlpZg1A4aaNojOT1tyI'  })}));
     } else {
       // Mark the form as dirty
       this.form.markAsDirty();

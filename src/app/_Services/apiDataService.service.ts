@@ -10,8 +10,7 @@ import { LogService } from './log.service';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://thirdtimesacharm.us-west-2.elasticbeanstalk.com'
+        'Content-Type': 'application/json'
     })
 };
 @Injectable()
@@ -21,7 +20,7 @@ export class ApiDataService {
 
 
     submitData(url: string, body: any): Observable<any> {
-        return this.http.post<any>(url, body).pipe(catchError(this.log.handleError('submitData', [])));
+        return this.http.post<any>(url, body, httpOptions).pipe(catchError(this.log.handleError('submitData', [])));
     }
 
     /**
@@ -112,6 +111,15 @@ export class ApiDataService {
 
 }
 
+
+export class APIForm<T> {
+    form: T;
+    key: string;
+    constructor(options: { form?: T, key: string }) {
+        this.form = options.form;
+        this.key = options.key;
+    }
+}
 
 /*
 Object for containing data returned from the API
