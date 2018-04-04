@@ -18,8 +18,10 @@ h2, h3 {
 }
 
 body {
-  margin: 2em;
-  padding-top:6em;
+  margin-left: 2em;
+  margin-right:2em;
+  margin-bottom:2em;
+  /*padding-top:6em;*/
 }
 
 body, input[text], button {

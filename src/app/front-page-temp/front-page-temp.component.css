@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  .fit { /* set relative picture size */
+    height:100%;
+    width:100%;
+    object-fit:contain;
+  }
+  .center {
+    display: block;
+    margin: auto;
+  }
+
+  .header {
+    display:inline;
+    position:static; 
+  }
+  .footer{
+    display:inline;
+  }
+
+  .footer .text {
+    font-size:3em;
+    text-align:center;
+    overflow-wrap:break-word;
+  }
+
+  .footer .mobile-text {
+    font-size:1em;
+    text-align:center;
+    overflow-wrap:break-word;
+  }
+  .footer .email {
+    font-weight: bold;
+  }
+
+  .footer .mobile-email {
+    font-weight: bold;
+  }

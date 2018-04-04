@@ -76,6 +76,7 @@ import { ScrollingTableComponent } from './scrolling-table/scrolling-table.compo
 import { EventRowComponent } from './event-row/event-row.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventMoreDetailsComponent } from './event-more-details/event-more-details.component';
+import { FrontPageTempComponent } from './front-page-temp/front-page-temp.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { EventMoreDetailsComponent } from './event-more-details/event-more-detai
         EventRowComponent,
         EventListComponent,
         EventMoreDetailsComponent,
+        FrontPageTempComponent,
     ],
     imports: [
         BrowserModule,
