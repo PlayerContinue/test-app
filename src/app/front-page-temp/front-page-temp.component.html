@@ -1,16 +1,16 @@
 <div>
     <app-mat-expandingboxwrapper class="header" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
         rowHeight="25em">
-        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:green">
+        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#dcf2fd">
             <img src="assets/img/front_page/liketoswim.png" class="fit">
         </app-mat-expandingbox>
-        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:blue">
+        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#ed008c">
             <img src="assets/img/front_page/fun.png" class="fit">
         </app-mat-expandingbox>
-        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:red">
+        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#ed008c">
             <img src="assets/img/front_page/team-name.png" class="fit">
         </app-mat-expandingbox>
-        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:orange">
+        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#dcf2fd">
             <img src="assets/img/front_page/logo.png" class="fit">
         </app-mat-expandingbox>
     </app-mat-expandingboxwrapper>
@@ -18,14 +18,14 @@
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
         rowHeight="10em">
 
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:purple">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
-                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">Download Registration
-                    <a href="assets/pdf/registration.pdf">here</a>
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you would like to be a sponser please click
+                    <a href="assets/pdf/sponser.pdf">here</a>
                 </p>
             </div>
         </app-mat-expandingbox>
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:purple">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">Contact Us at
                     <a [ngClass]="{'email': !mobileQuery.matches, 'mobile-email': mobileQuery.matches}" href="mailto:valenciasummitseals@gmail.com">valenciasummitseals@gmail.com</a>
