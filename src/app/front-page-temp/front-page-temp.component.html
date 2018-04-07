@@ -17,11 +17,32 @@
 
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
         rowHeight="10em">
-
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
+            <div>
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 2018 Registration: 
+                    Sat, April 7 and April 21, 10AM-1PM at the HOA Clubhouse
+                </p>
+            </div>
+        </app-mat-expandingbox>
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
+                <div>
+                    <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> LATE REGISTRATION at 
+                        the HOA Clubhouse: Wednesday, May 2, 5-8PM (with Food Trucks!)
+                    </p>
+                </div>
+            </app-mat-expandingbox>
+            <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
+                    <div>
+                        <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
+                            New Parent Orientation at HOA Clubhouse, Wednesday, May 2, 6-6:30PM 
+                        </p>
+                    </div>
+                </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
-                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you would like to be a sponser please click
-                    <a href="assets/pdf/sponser.pdf">here</a>
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you are interested
+                    in being a 2018 sponser, please download more information 
+                    <a href="assets/pdf/sponser.pdf">here</a>.
                 </p>
             </div>
         </app-mat-expandingbox>
