@@ -14,7 +14,7 @@
             <img src="assets/img/front_page/logo.png" class="fit">
         </app-mat-expandingbox>
     </app-mat-expandingboxwrapper>
-
+<!-- Alternate the following expanding boxes with #b7e6fa and #dcf2fd, starting with former -->
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
         [rowHeight]="mobileQuery.matches ? '5em' : '15em'">
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
@@ -32,21 +32,21 @@
                 </p>
             </div>
         </app-mat-expandingbox>
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
                     LATE Registration: Saturday, April 21, 10AM-1PM at the HOA Clubhouse
                 </p>
             </div>
         </app-mat-expandingbox>
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
                     LATEST Registration: Wednesday, May 2, 5-8PM at the HOA Clubhouse (with Food Trucks!)
                 </p>
             </div>
         </app-mat-expandingbox>
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
                     New Parent Orientation, Wednesday, May 2, 6-6:30PM at the HOA Clubhouse (with Food Trucks!)
@@ -60,7 +60,7 @@
                 </p>
             </div>
         </app-mat-expandingbox>
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">Contact Us at
                     <a [ngClass]="{'email': !mobileQuery.matches, 'mobile-email': mobileQuery.matches}" href="mailto:valenciasummitseals@gmail.com">valenciasummitseals@gmail.com</a>
