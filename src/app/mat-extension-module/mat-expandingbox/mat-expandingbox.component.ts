@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, ElementRef, HostBinding,
-  EventEmitter, Output, AfterViewInit } from '@angular/core';
+import {
+  Component, OnInit, Input, ElementRef, HostBinding,
+  EventEmitter, Output, AfterViewInit, HostListener, Renderer2
+} from '@angular/core';
 import { MatGridTile } from '@angular/material';
+import { DomSanitizer  } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mat-expandingbox',
@@ -13,16 +16,21 @@ import { MatGridTile } from '@angular/material';
 export class MatExpandingBoxComponent extends MatGridTile implements AfterViewInit {
   @HostBinding('class.mat-grid-tile') field = true;
   @HostBinding('hidden') _show = false;
+
   // The orignal row and column value
   originalRow: number;
   originalCol: number;
   private _allowExpansion: boolean; // Stores if expansion is currently allowed
+  private _originalHeight: string;
+  private _originalWidth: string;
   public set allowExpansion(value: boolean) {
     this._allowExpansion = value;
   }
   public get allowExpansion() {
     return this._allowExpansion;
   }
+
+
   /**
    * Show or hide the current object
    */
@@ -30,8 +38,15 @@ export class MatExpandingBoxComponent extends MatGridTile implements AfterViewIn
   get show() { return this._show; }
 
   @Output() expandEvent = new EventEmitter<MatExpandingBoxComponent>();
-  constructor(private ref: ElementRef) {
+  constructor(private ref: ElementRef, private sanatizer: DomSanitizer, private renderer: Renderer2) {
     super(ref);
+  }
+
+  @HostListener('mouseover') onMouseOver() {
+    this.makeProminant();
+  }
+  @HostListener('mouseout') onmouseout() {
+    this.makeNotProminant();
   }
 
   ngAfterViewInit() {
@@ -58,6 +73,22 @@ export class MatExpandingBoxComponent extends MatGridTile implements AfterViewIn
   public revertToOriginalRowAndColumn() {
     this.rowspan = this.originalRow;
     this.colspan = this.originalCol;
+  }
+
+  private makeProminant() {
+    if (!this._originalHeight) {
+      this._originalHeight = this.ref.nativeElement.style.height;
+    }
+
+    if (!this._originalWidth) {
+      this._originalWidth += this.ref.nativeElement.style.width;
+    }
+
+    this.renderer.removeStyle(this.ref.nativeElement, 'height');
+    this.renderer.setStyle(this.ref.nativeElement, 'height', this._originalHeight.replace(');', '') + '+50px)' );
+  }
+
+  private makeNotProminant() {
   }
 
   /**

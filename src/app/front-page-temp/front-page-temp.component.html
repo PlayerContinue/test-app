@@ -16,7 +16,7 @@
     </app-mat-expandingboxwrapper>
 
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
-        rowHeight="10em">
+        [rowHeight]="mobileQuery.matches ? '5em' : '10em'">
 
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>

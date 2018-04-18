@@ -1,6 +1,6 @@
 .expand-overlay {
     position: relative;
-     display: none; /* Hidden by default */
+    display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0; 
@@ -19,3 +19,12 @@
     right:0;
     z-index:2;
 }
+
+
+:host(.mat-grid-hover-tile):hover{
+    z-index:1000 !important;
+    margin: -50px -100px; /* inital margin - ((intial margin - width change (or height change))/2) */
+    height:calc(25em + 0px) + 50px !important;
+    width: calc(((25% - 0.75px) * 2) + 1px) + 50px !important;
+    background-color:magenta !important;
+   } 

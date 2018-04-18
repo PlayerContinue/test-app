@@ -20,6 +20,10 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    -webkit-transition: width 1s, height 1s, margin 1s;
+    -moz-transition: width 1s, height 1s, margin 1s;
+    -ms-transition: width 1s, height 1s, margin 1s;
+    transition: width 1s, height 1s, margin 1s;
   }
   :host(.mat-grid-tile) :host(.mat-grid-tile)-header,
   :host(.mat-grid-tile) :host(.mat-grid-tile)-footer {

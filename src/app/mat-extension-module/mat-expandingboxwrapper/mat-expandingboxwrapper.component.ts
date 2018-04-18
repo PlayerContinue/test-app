@@ -1,7 +1,7 @@
 import {
   Component, OnInit, Input, ElementRef, Optional,
   ContentChildren, QueryList, HostBinding, HostListener,
-  AfterViewInit, OnDestroy
+  AfterViewInit, OnDestroy, AfterContentChecked
 } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { MatGridList } from '@angular/material';
@@ -13,11 +13,12 @@ import { MatExpandingBoxComponent } from '../mat-expandingbox/mat-expandingbox.c
 })
 
 
-export class MatExpandingBoxWrapperComponent extends MatGridList implements AfterViewInit, OnDestroy {
+export class MatExpandingBoxWrapperComponent extends MatGridList implements AfterViewInit, OnDestroy, AfterContentChecked {
   totalColumns: number;
   /** Query list of tiles that are being rendered. */
   @ContentChildren(MatExpandingBoxComponent) _tiles: QueryList<MatExpandingBoxComponent>;
   @HostBinding('class.mat-grid-list') field = true;
+  @HostBinding('class.mat-grid-hover-tile') field1 = true;
   @Input()
   set allowExpansion(value: boolean) {
     if (this._allowExpansion !== value) {
@@ -44,7 +45,7 @@ export class MatExpandingBoxWrapperComponent extends MatGridList implements Afte
     this._tiles.toArray().forEach(function (item: MatExpandingBoxComponent, index: number, array: MatExpandingBoxComponent[]) {
       this.totalColumns += item.colspan;
       item.expandEvent.subscribe(($event: MatExpandingBoxComponent) => this.expandWrapper($event));
-      setTimeout(() => { item.allowExpansion = this._allowExpansion; } );
+      setTimeout(() => { item.allowExpansion = this._allowExpansion; });
     }, this);
 
   }
