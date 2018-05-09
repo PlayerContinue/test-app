@@ -47,7 +47,7 @@ import { start } from 'repl';
   styleUrls: ['./calendar.component.css'],
   //template: '<table><ng-content></ng-content></table>'
 })
-export class CalendarComponent { //implements OnInit {
+export class CalendarComponent implements OnInit {
   
   ngOnInit() {
 
