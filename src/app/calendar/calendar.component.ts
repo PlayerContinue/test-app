@@ -20,6 +20,8 @@ import {
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent } from 'angular-calendar';
+import { ApiDataService } from '../_Services/apiDataService.service';
+import { start } from 'repl';
 
   const colors: any = {
     red: {
@@ -35,6 +37,8 @@ import {
       secondary: '#FDF1BA'
     }
   };
+
+  var theEvents;
   
 @Component({
   selector: 'app-calendar',
@@ -43,9 +47,10 @@ import {
   styleUrls: ['./calendar.component.css'],
   //template: '<table><ng-content></ng-content></table>'
 })
-export class CalendarComponent implements OnInit {
-
+export class CalendarComponent { //implements OnInit {
+  
   ngOnInit() {
+
   }
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -55,7 +60,7 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
 
   modalData: {
-    action: string;
+    //action: string;
     event: CalendarEvent;
   };
 
@@ -77,43 +82,32 @@ export class CalendarComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {}
+  constructor(private modal: NgbModal) {
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        theEvents = JSON.parse(this.responseText);
+      }
+    };
+    xmlhttp.open("GET", "http://swimteam-stage-2.us-east-1.elasticbeanstalk.com/api/events/test", false);
+    xmlhttp.send();
+
+    if (theEvents != null) {
+      // Now clean up the events' Dates
+      for (var property in theEvents) {
+        theEvents[property].start = new Date(theEvents[property].start);
+        theEvents[property].end = new Date(theEvents[property].end);
+        theEvents[property].color = colors[theEvents[property].color];
+      }
+      this.events = theEvents;
+      //console.log(this.events);
+    }
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -141,7 +135,7 @@ export class CalendarComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
+    this.modalData = { event };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
