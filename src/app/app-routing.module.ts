@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AboutComponent } from './about/about.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AnnualRegFormComponent } from './annual-reg-form/annual-reg-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'about', component: AboutComponent },
   { path: 'calendar', component: CalendarComponent},
+  { path: 'annualreg', component: AnnualRegFormComponent},
 ];
 
 @NgModule({

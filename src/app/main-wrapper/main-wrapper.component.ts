@@ -14,7 +14,7 @@ export class MainWrapperComponent implements OnInit {
   navbar = [
     { name: 'Home', url: '/index' },
     { name: 'Create Account', url: '/createaccount' },
-    { name: 'Registration', url: '/registration' },
+    { name: 'Registration', url: '/annualreg' },
     { name: 'About Us', url: '/about' },
     { name: 'Calendar', url: '/calendar'},
   ];

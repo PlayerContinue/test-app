@@ -1,0 +1,97 @@
+<h1>Annual Registration for Summer</h1> 
+<form> <!--action="/reg_page.php">-->
+  <fieldset>
+    <h4>Parent Info:</h4>
+    <p>
+      *<label>Name: </label>
+      <input name="parentname" type="text" required>
+      <label>Email:</label>
+      <input name="parentemail" type="email" required>
+      <label>Phone:</label>
+      <input name="parentphone" type="tel" required>
+    </p>
+    <h4>Second Parent Info (optional):</h4>
+    <p>
+      <label>Name: </label>
+      <input name="parentname2" type="text">
+      <label>Email:</label>
+      <input name="parentemail2" type="email">
+      <label>Phone:</label>
+      <input name="parentphone2" type="tel">
+    </p>
+    <h4>Per-Child Registration: $<output name="regtotal">95.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>Number of Children to Register:</label>
+      <input name="numChildren" type="number" min="1" max="4"><br>
+      TODO: use javascript to dynamically create that many child name input fields<br>
+      <label>1st Child's Name</label>
+      <input name="childname" type="text" required> $95<br>
+      <label>2nd Child's Name</label>    
+      <input name="childname2" type="text"> $85<br>
+      <label>3rd Child's Name</label>    
+      <input name="childname3" type="text"> $80<br>
+      <label>4th Child's Name</label>    
+      <input name="childname4" type="text"> $75
+    </p>
+    <h4>Caps: $<output name="capstotal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>Personalized Swim Caps</label>
+      <input name="personalcaps" type="number" min="0" max="10">$30.00/2 (2 minimum)<br>
+      <label>Seals Caps</label>
+      <input name="personalcaps" type="number" min="0" max="10">$6.00 each 
+    </p>
+    <h4>Swim Lessons: $<output name="lessonstotal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>1 Private Lesson</label>
+      <input name="onelesson" type="number" min="0" max="9">$20.00/one 30 minute individual lesson<br>
+      <label>5 Private Lesson Package</label>
+      <input name="fivelessonpackage" type="number" min="0" max="9">$90.00
+    </p>
+    <h4>Team Photos: $<output name="photototal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>Lifetouch Team Photo Package</label>
+      <input name="photopackage" type="number" min="0" max="9"><br>
+      Additional buddy photos payable 6/7 to Lifetouch
+    </p>
+    <h4>Commemorative DVD: $<output name="dvdtotal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>End-of-season DVD</label>
+      <input name="dvdcount" type="number" min="0" max="9">$15.00/each<br>
+    </p>
+    <h4>Canteen Cards: $<output name="canteencardtotal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>Canteen Card with $5 value</label>
+      <input name="canteencardcount" type="number" min="0" max="9">$5.00/each<br>
+    </p>
+    <h4>Pasta by the Pool: $<output name="pastatotal">0.00 TODO: calculate in javascript</output></h4>
+    <p>
+      <label>Child Dinner</label>
+      <input name="childpastas" type="number" min="0" max="9">$6.00/each<br>
+      <label>Adult Dinner</label>
+      <input name="adultpastas" type="number" min="0" max="9">$8.00/each
+    </p>
+    <h4>Pancake Breakfast: $50.00</h4>
+<p>Ten tickets are included.  Please feel free to use for you and your family and/or to invite
+  other families to eat with us for this nice hot meal!
+</p>
+<h4>Volunteer Hours: $300.00</h4>
+<p>In order to accomplish all of the fun activities we have planned for your child or children, 
+  there is a minimum of 20 hours of parent volunteer hours required per family.  If the required
+  volunteer hours are met, this volunteer fee will be refunded (or check returned).</p>
+    <p>
+      Do you already have a WhenToHelp.com account associated with the Valencia Summit Seals?<br>
+    <input name="haswthaccount" type="radio" id="wth1" value="yes">
+    <label for="wth1">Yes</label>
+    <input name="haswthaccount" type="radio" id="wth2" value="no">
+    <label for="wth2">No</label>
+    </p>
+    <h4>Swimsuits and Other Merchandise</h4>
+<p>Swimsuits can be purchased at <a href="https://www.swimoutlet.com/summitseals/">https://www.swimoutlet.com/summitseals/</a> and Summit Seals
+  clothing and accessories can be purchased at <a 
+  href="https://www.agpestores.com/ideafactory/groupproducts.php?prodgroup_id=21965&prodgroupbypass=true">
+  https://www.agpestores.com/ideafactory/groupproducts.php?prodgroup_id=21965&prodgroupbypass=true</a>.
+</p>
+    <h3>Grand Total: $<output name="grandtotal">TODO: calculate in javascript</output></h3>
+  </fieldset>
+  <input type="submit" value="Continue">
+</form>
