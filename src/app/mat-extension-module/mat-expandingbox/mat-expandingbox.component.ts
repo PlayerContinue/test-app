@@ -42,12 +42,13 @@ export class MatExpandingBoxComponent extends MatGridTile implements AfterViewIn
     super(ref);
   }
 
-  @HostListener('mouseover') onMouseOver() {
+  // TODO add functionality to add slight widening of tile when object is hovered 
+  /*@HostListener('mouseover') onMouseOver() {
     this.makeProminant();
   }
   @HostListener('mouseout') onmouseout() {
     this.makeNotProminant();
-  }
+  }*/
 
   ngAfterViewInit() {
     // Called after every check of the component's or directive's content.
