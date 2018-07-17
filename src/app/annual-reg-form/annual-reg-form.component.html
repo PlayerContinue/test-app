@@ -1,5 +1,5 @@
 <h1>Annual Registration for Summer</h1> 
-<form> <!--action="/reg_page.php">-->
+<form name="reg"> <!--action="/reg_page.php">-->
   <fieldset>
     <h4>Parent Info:</h4>
     <p>
@@ -15,57 +15,58 @@
       <label>Name: </label>
       <input name="parentname2" type="text">
       <label>Email:</label>
-      <input name="parentemail2" type="email">
+      <input name="parentemail2" type="email"> 
       <label>Phone:</label>
       <input name="parentphone2" type="tel">
     </p>
-    <h4>Per-Child Registration: $<output name="regtotal">95.00 TODO: calculate in javascript</output></h4>
+    <h4>Per-Child Registration: $<output name="regtotal">95.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>Number of Children to Register:</label>
       <input name="numChildren" type="number" min="1" max="4"><br>
-      TODO: use javascript to dynamically create that many child name input fields<br>
+      TODO: use Angular to dynamically create that many child name input fields<br>
       <label>1st Child's Name</label>
-      <input name="childname" type="text" required> $95<br>
-      <label>2nd Child's Name</label>    
+      <input name="childname1" type="text"> $95<br>
+      <label>2nd Child's Name</label>
       <input name="childname2" type="text"> $85<br>
       <label>3rd Child's Name</label>    
       <input name="childname3" type="text"> $80<br>
       <label>4th Child's Name</label>    
-      <input name="childname4" type="text"> $75
+      <input name="childname4" type="text"> $75<br>
       <label>5th Child's Name</label>    
       <input name="childname5" type="text"> $70
+      <button id="calcRegBtn">Calc Costs</button>
     </p>
-    <h4>Caps: $<output name="capstotal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Caps: $<output name="capstotal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>Personalized Swim Caps</label>
       <input name="personalcaps" type="number" min="0" max="10">$30.00/2 (2 minimum)<br>
       <label>Seals Caps</label>
       <input name="personalcaps" type="number" min="0" max="10">$6.00 each 
     </p>
-    <h4>Swim Lessons: $<output name="lessonstotal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Swim Lessons: $<output name="lessonstotal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>1 Private Lesson</label>
       <input name="onelesson" type="number" min="0" max="9">$20.00/one 30 minute individual lesson<br>
       <label>5 Private Lesson Package</label>
       <input name="fivelessonpackage" type="number" min="0" max="9">$90.00
     </p>
-    <h4>Team Photos: $<output name="photototal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Team Photos: $<output name="photototal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>Lifetouch Team Photo Package</label>
       <input name="photopackage" type="number" min="0" max="9"><br>
       Additional buddy photos payable 6/7 to Lifetouch
     </p>
-    <h4>Commemorative DVD: $<output name="dvdtotal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Commemorative DVD: $<output name="dvdtotal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>End-of-season DVD</label>
       <input name="dvdcount" type="number" min="0" max="9">$15.00/each<br>
     </p>
-    <h4>Canteen Cards: $<output name="canteencardtotal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Canteen Cards: $<output name="canteencardtotal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>Canteen Card with $5 value</label>
       <input name="canteencardcount" type="number" min="0" max="9">$5.00/each<br>
     </p>
-    <h4>Pasta by the Pool: $<output name="pastatotal">0.00 TODO: calculate in javascript</output></h4>
+    <h4>Pasta by the Pool: $<output name="pastatotal">0.00 TODO: calculate in Angular</output></h4>
     <p>
       <label>Child Dinner</label>
       <input name="childpastas" type="number" min="0" max="9">$6.00/each<br>
@@ -93,7 +94,7 @@
   href="https://www.agpestores.com/ideafactory/groupproducts.php?prodgroup_id=21965&prodgroupbypass=true">
   https://www.agpestores.com/ideafactory/groupproducts.php?prodgroup_id=21965&prodgroupbypass=true</a>.
 </p>
-    <h3>Grand Total: $<output name="grandtotal">TODO: calculate in javascript</output></h3>
+    <h3>Grand Total: $<output name="grandtotal">TODO: calculate in Angular</output></h3>
   </fieldset>
   <input type="submit" value="Continue">
 </form>
