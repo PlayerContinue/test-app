@@ -1,7 +1,12 @@
 <div>
-    <app-mat-expandingboxwrapper class="header" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
+    <app-mat-expandingboxwrapper class="header" [allowExpansion]="false" [cols]="mobileQuery.matches ? 1 : 1"
         [rowHeight]="mobileQuery.matches ? '10em' : '25em'">
-        <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#dcf2fd">
+    <!--<app-mat-expandingboxwrapper class="header" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
+        [rowHeight]="mobileQuery.matches ? '10em' : '25em'">-->
+        <app-mat-expandingbox colspan="1" rowspan="1" style="background-color:#dcf2fd">
+            <img src="assets/img/front_page/banner2019.png" class="fit">
+        </app-mat-expandingbox>
+        <!--<app-mat-expandingbox colspan="1" rowspan="1" style="background-color:#dcf2fd">
             <img src="assets/img/front_page/liketoswim.png" class="fit">
         </app-mat-expandingbox>
         <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#ed008c">
@@ -13,14 +18,15 @@
         <app-mat-expandingbox colspan="2" rowspan="1" style="background-color:#dcf2fd">
             <img src="assets/img/front_page/logo.png" class="fit">
         </app-mat-expandingbox>
+    -->
     </app-mat-expandingboxwrapper>
 <!-- Alternate the following expanding boxes with #b7e6fa and #dcf2fd, starting with former -->
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
-        [rowHeight]="mobileQuery.matches ? '5em' : '15em'">
+        [rowHeight]="mobileQuery.matches ? '5em' : '10em'">
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you are interested
-                    in being a 2018 sponsor, please download more information 
+                    in being a 2019 sponsor, please download more information 
                     <a href="assets/pdf/sponsor.pdf">here</a>.
                 </p>
             </div>
@@ -35,29 +41,29 @@
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
-                    LATE Registration: Saturday, April 21, ***3-6PM*** at the HOA Clubhouse. Time updated 04/19/18.
+                    2019 First Registration: Sunday, April 28, 9AM-NOON at the HOA Clubhouse.
                 </p>
             </div>
         </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
-                    LATEST Registration: Wednesday, May 2, 5-8PM at the HOA Clubhouse (with Food Trucks!)
+                    2019 Second Registration: Wednesday, May 8, 6-8PM at the HOA Clubhouse (possibly with Food Trucks?!)
                 </p>
             </div>
         </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    New Parent Orientation, Wednesday, May 2, 6-6:30PM at the HOA Clubhouse (with Food Trucks!)
+                    2019 New Parent Orientation, Wednesday, May 8, 7-8PM at the HOA Clubhouse
                 </p>
             </div>
         </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    Please download and fill out the 2018 registration packet <a href="assets/zip/sealsreg2018.zip">here</a>.
-                    Files updated 04/12/2018.
+                    Please download and fill out the 2019 registration cashier sheet <a href="assets/pdf/SummitSealsCashierSheet2019.pdf">here</a>.
+                    Files updated 04/07/2019.
                 </p>
             </div>
         </app-mat-expandingbox>
