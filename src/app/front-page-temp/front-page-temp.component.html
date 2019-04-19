@@ -23,18 +23,15 @@
 <!-- Alternate the following expanding boxes with #b7e6fa and #dcf2fd, starting with former -->
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
         [rowHeight]="mobileQuery.matches ? '5em' : '10em'">
-        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
-            <div>
-                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you are interested
-                    in being a 2019 sponsor, please download more information 
-                    <a href="assets/pdf/sponsor.pdf">here</a>.
-                </p>
-            </div>
-        </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
-                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
-                    Purchase swimsuits with the "green" color option at <a href="https://www.swimoutlet.com/summitseals/">https://www.swimoutlet.com/summitseals/</a>.
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
+                    Registration-related forms:
+                </p>
+                <p>- <a href="assets/pdf/SummitSealsCashierSheet2019.pdf">2019 Cashier Sheet</a></p>
+                <p>- <a href="assets/pdf/SantaClaritaSwimLeagueRulesandRegulations.pdf">Santa Clarita Swim League Rules and Regulations</a></p>
+                <p>- <a href="assets/pdf/SCSwimLeagueBylaws2014.pdf">Santa Clarita Swim League Bylaws</a></p>
+                <p>    Files updated 04/19/2019.
                 </p>
             </div>
         </app-mat-expandingbox>
@@ -55,15 +52,22 @@
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    2019 New Parent Orientation, Wednesday, May 8, 7-8PM at the HOA Clubhouse
+                    2019 New Parent Orientation, Wednesday, May 1, 7-8PM at the HOA Clubhouse
                 </p>
             </div>
         </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
-                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    Please download and fill out the 2019 registration cashier sheet <a href="assets/pdf/SummitSealsCashierSheet2019.pdf">here</a>.
-                    Files updated 04/07/2019.
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
+                    Purchase swimsuits with the "green" color option at <a href="https://www.swimoutlet.com/summitseals/">https://www.swimoutlet.com/summitseals/</a>.
+                </p>
+            </div>
+        </app-mat-expandingbox>
+        <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
+            <div>
+                <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">If you are interested
+                    in being a 2019 sponsor, please download more information 
+                    <a href="assets/pdf/sponsor.pdf">here</a>.
                 </p>
             </div>
         </app-mat-expandingbox>
