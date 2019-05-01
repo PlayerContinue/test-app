@@ -20,21 +20,27 @@
         </app-mat-expandingbox>
     -->
     </app-mat-expandingboxwrapper>
-<!-- Alternate the following expanding boxes with #b7e6fa and #dcf2fd, starting with former -->
+    <!-- Alternate the following expanding boxes with #b7e6fa and #dcf2fd, starting with former -->
     <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
-        [rowHeight]="mobileQuery.matches ? '5em' : '10em'">
+        [rowHeight]="mobileQuery.matches ? '15em' : '15em'">
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    Registration-related forms:
+                    2019 Season forms:
                 </p>
-                <p>- <a href="assets/pdf/SummitSealsCashierSheet2019.pdf">2019 Cashier Sheet</a></p>
-                <p>- <a href="assets/pdf/SantaClaritaSwimLeagueRulesandRegulations.pdf">Santa Clarita Swim League Rules and Regulations</a></p>
+                <p>- <a href="assets/pdf/SUMMIT_SEALS_CASHIER_SHEET_2019_Final.pdf">2019 Cashier Sheet*</a></p>
+                <p>- <a href="assets/pdf/Seals_Calendar_of_Events_Apr_July_2019.pdf">2019 Calendar of Events*</a></p>
+                <p>- <a href="assets/pdf/PRACTICE_SCHEDULE_2019_Final.pdf">2019 Practice Schedule*</a></p>
+                <p>- <a href="assets/pdf/INFO_PACKET_2019_Final.pdf">2019 Info Packet*</a></p>
+                <p>- <a href="assets/pdf/SantaClaritaSwimLeagueRulesandRegulations.pdf">Santa Clarita Swim League R&R</a></p>
                 <p>- <a href="assets/pdf/SCSwimLeagueBylaws2014.pdf">Santa Clarita Swim League Bylaws</a></p>
-                <p>    Files updated 04/19/2019.
+                <p>   * Files added or updated 04/30/2019.
                 </p>
             </div>
         </app-mat-expandingbox>
+    </app-mat-expandingboxwrapper>
+    <app-mat-expandingboxwrapper class="footer" [allowExpansion]="false" [cols]="mobileQuery.matches ? 2 : 4"
+        [rowHeight]="mobileQuery.matches ? '5em' : '10em'">
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
@@ -45,14 +51,14 @@
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#dcf2fd">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}"> 
-                    2019 Second Registration: Wednesday, May 8, 6-8PM at the HOA Clubhouse (possibly with Food Trucks?!)
+                    2019 Second Registration: Wednesday, May 8, 6-8PM at the HOA Clubhouse (with Food Trucks!)
                 </p>
             </div>
         </app-mat-expandingbox>
         <app-mat-expandingbox [colspan]="mobileQuery.matches ? 2 : 4 " rowspan="1" style="background-color:#b7e6fa">
             <div>
                 <p [ngClass]="{'text': !mobileQuery.matches, 'mobile-text': mobileQuery.matches}">
-                    2019 New Parent Orientation, Wednesday, May 1, 7-8PM at the HOA Clubhouse
+                    2019 New Parent Orientation, Wednesday, May 22, 7-8PM at the HOA Clubhouse (also with Food Trucks!)
                 </p>
             </div>
         </app-mat-expandingbox>
